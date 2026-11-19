@@ -1,0 +1,179 @@
+{
+  "@@locale": "fr",
+
+  "appName": "EasyTrip",
+  "tagline": "Toute la région, à un voyage près.",
+
+  "actionContinue": "Continuer",
+  "actionCancel": "Annuler",
+  "actionRetry": "Réessayer",
+  "actionClose": "Fermer",
+  "loading": "Chargement…",
+  "comingSoon": "Bientôt disponible",
+
+  "languageName": "Français",
+  "switchToFrench": "FR",
+  "switchToEnglish": "EN",
+
+  "loginTitle": "Bon retour",
+  "loginSubtitle": "Connectez-vous pour continuer votre voyage.",
+  "phoneLabel": "Numéro de téléphone",
+  "phoneHint": "99 123 4567",
+  "passwordLabel": "Mot de passe",
+  "loginButton": "Se connecter",
+  "noAccountQuestion": "Vous n'avez pas de compte ?",
+  "signUpLink": "S'inscrire",
+
+  "registerTitle": "Créez votre compte",
+  "registerSubtitle": "Réservez des trajets dans toute la région en quelques minutes.",
+  "fullNameLabel": "Nom complet",
+  "fullNameHint": "ex. Ariel Aganze",
+  "emailLabel": "E-mail (facultatif)",
+  "emailHint": "vous@exemple.com",
+  "createPasswordLabel": "Mot de passe",
+  "registerButton": "Créer le compte",
+  "haveAccountQuestion": "Vous avez déjà un compte ?",
+  "loginLink": "Se connecter",
+
+  "countryCodeLabel": "Pays",
+  "countryDrc": "RD Congo",
+  "countryRwanda": "Rwanda",
+  "countryUganda": "Ouganda",
+  "countryKenya": "Kenya",
+
+  "validationRequired": "Ce champ est obligatoire.",
+  "validationInvalidPhone": "Saisissez un numéro de téléphone valide.",
+  "validationInvalidEmail": "Saisissez une adresse e-mail valide.",
+  "validationPasswordTooShort": "Le mot de passe doit contenir au moins 8 caractères.",
+
+  "errorGeneric": "Une erreur s'est produite. Veuillez réessayer.",
+  "errorNetwork": "Impossible de joindre le serveur. Vérifiez votre connexion et réessayez.",
+  "errorSessionExpired": "Votre session a expiré. Veuillez vous reconnecter.",
+
+  "homeGreeting": "Bonjour, {name}",
+  "homeWelcome": "Vos trajets, billets et paiements — au même endroit.",
+  "homeBuildNote": "Vous êtes connecté. L'expérience voyageur — recherche, sièges, Mobile Money et vos billets QR — arrive bientôt.",
+  "tabSearch": "Recherche",
+  "tabTickets": "Mes billets",
+  "tabProfile": "Profil",
+  "logout": "Se déconnecter",
+
+  "roleCustomer": "Voyageur",
+  "roleOperator": "Opérateur",
+  "roleAgent": "Agent",
+  "roleAdmin": "Administrateur",
+    "roleUnknown": "Membre",
+
+  "searchTitle": "Trouver un trajet",
+  "searchFrom": "Départ",
+  "searchTo": "Arrivée",
+  "searchSelectCity": "Choisir une ville",
+  "searchCitySearchHint": "Rechercher une ville",
+  "searchDate": "Date",
+  "searchPassengers": "Passagers",
+  "searchButton": "Rechercher",
+  "searchSwapTooltip": "Inverser départ et arrivée",
+  "searchSameCityError": "Le départ et l'arrivée doivent être différents.",
+
+  "sortLabel": "Trier par",
+  "sortRecommended": "Recommandé",
+  "sortCheapest": "Moins cher",
+  "sortFastest": "Plus rapide",
+  "sortTopRated": "Mieux notés",
+
+  "resultsEmptyTitle": "Aucun trajet trouvé",
+  "resultsEmptyBody": "Aucun trajet sur cet itinéraire à la date choisie. Essayez une autre date.",
+  "resultsError": "Impossible de charger les trajets. Veuillez réessayer.",
+
+  "tripSelect": "Choisir",
+  "tripNew": "Nouveau",
+  "tripSeatsLeft": "{count, plural, =0{Complet} =1{1 place restante} other{{count} places restantes}}",
+  "@tripSeatsLeft": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "tripsFound": "{count, plural, =0{Aucun trajet} =1{1 trajet} other{{count} trajets}}",
+  "@tripsFound": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+    "amenitiesTitle": "Équipements",
+  "tripDepartureLabel": "Départ",
+  "tripArrivalLabel": "Arrivée",
+  "totalLabel": "Total",
+  "seatChooseTitle": "Choisissez vos sièges",
+  "seatSelectedProgress": "{selected} sur {total} sélectionné(s)",
+  "@seatSelectedProgress": {
+    "placeholders": {
+      "selected": { "type": "int" },
+      "total": { "type": "int" }
+    }
+  },
+  "seatAutoTitle": "Sièges attribués automatiquement",
+  "seatAutoBody": "Vos numéros de siège vous sont communiqués une fois la réservation confirmée.",
+  "seatFront": "Avant",
+  "seatLegendAvailable": "Disponible",
+  "seatLegendSelected": "Sélectionné",
+  "seatLegendTaken": "Occupé",
+  "checkoutTitle": "Paiement",
+  "passengerDetailsTitle": "Détails des passagers",
+  "passengerLabel": "Passager {n}",
+  "@passengerLabel": {
+    "placeholders": {
+      "n": { "type": "int" }
+    }
+  },
+  "contactPhoneLabel": "Téléphone de contact (facultatif)",
+  "paymentTitle": "Paiement",
+  "networkLabel": "Réseau Mobile Money",
+  "msisdnLabel": "Numéro Mobile Money",
+  "payNow": "Payer {amount}",
+  "@payNow": {
+    "placeholders": {
+      "amount": { "type": "String" }
+    }
+  },
+  "seatChipLabel": "Siège {seat}",
+  "@seatChipLabel": {
+    "placeholders": {
+      "seat": { "type": "String" }
+    }
+  },
+  "payWaitingTitle": "Confirmez sur votre téléphone",
+  "payWaitingBody": "Nous avons envoyé une demande de paiement au {msisdn}. Approuvez-la sur votre téléphone pour confirmer votre réservation.",
+  "@payWaitingBody": {
+    "placeholders": {
+      "msisdn": { "type": "String" }
+    }
+  },
+  "payReferenceLabel": "Référence de paiement",
+  "payStillWaiting": "En attente de confirmation. Cela peut prendre un instant — appuyez sur actualiser une fois approuvé.",
+  "refreshStatus": "Actualiser",
+  "paySuccessTitle": "Paiement confirmé !",
+  "paySuccessBody": "Votre réservation {reference} est confirmée. Votre billet sera dans Mes billets.",
+  "@paySuccessBody": {
+    "placeholders": {
+      "reference": { "type": "String" }
+    }
+  },
+  "payFailedTitle": "Échec du paiement",
+  "payFailedBody": "Le paiement n'a pas abouti. Veuillez réessayer.",
+  "doneAction": "Terminé",
+  "backAction": "Retour",
+  "ticketsEmptyTitle": "Aucun billet pour l'instant",
+  "ticketsEmptyBody": "Vos trajets réservés apparaîtront ici sous forme de billets électroniques.",
+  "ticketsError": "Impossible de charger vos billets. Tirez vers le bas pour réessayer.",
+  "ticketStatusValid": "Valide",
+  "ticketStatusUsed": "Utilisé",
+  "ticketStatusCancelled": "Annulé",
+  "ticketDetailTitle": "Votre billet",
+  "ticketShowAtBoarding": "Présentez ce code QR à l'agent à l'embarquement.",
+  "ticketUsedNote": "Ce billet a déjà été utilisé.",
+  "ticketCancelledNote": "Ce billet a été annulé.",
+  "ticketPassengerLabel": "Passager",
+  "ticketSeatLabel": "Siège",
+  "ticketVehicleLabel": "Véhicule",
+  "ticketNumberLabel": "Référence de réservation"
+}

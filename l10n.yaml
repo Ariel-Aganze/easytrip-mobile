@@ -1,0 +1,12 @@
+# Localization generation config.
+# Generated code is written into lib/l10n (synthetic-package: false), so it is
+# imported like any normal file: package:easytrip/l10n/app_localizations.dart
+# Run `flutter gen-l10n` after `flutter pub get` (or just `flutter run`, which
+# regenerates it automatically).
+arb-dir: lib/l10n
+template-arb-file: app_en.arb
+output-localization-file: app_localizations.dart
+output-class: AppLocalizations
+synthetic-package: false
+# AppLocalizations.of(context) returns a non-null instance.
+nullable-getter: false

@@ -1,0 +1,184 @@
+{
+  "@@locale": "en",
+
+  "appName": "EasyTrip",
+  "tagline": "The whole region, one journey away.",
+
+  "actionContinue": "Continue",
+  "actionCancel": "Cancel",
+  "actionRetry": "Retry",
+  "actionClose": "Close",
+  "loading": "Loading…",
+  "comingSoon": "Coming soon",
+
+  "languageName": "English",
+  "switchToFrench": "FR",
+  "switchToEnglish": "EN",
+
+  "loginTitle": "Welcome back",
+  "loginSubtitle": "Log in to continue your journey.",
+  "phoneLabel": "Phone number",
+  "phoneHint": "99 123 4567",
+  "passwordLabel": "Password",
+  "loginButton": "Log in",
+  "noAccountQuestion": "Don't have an account?",
+  "signUpLink": "Sign up",
+
+  "registerTitle": "Create your account",
+  "registerSubtitle": "Book trips across the region in minutes.",
+  "fullNameLabel": "Full name",
+  "fullNameHint": "e.g. Ariel Aganze",
+  "emailLabel": "Email (optional)",
+  "emailHint": "you@example.com",
+  "createPasswordLabel": "Password",
+  "registerButton": "Create account",
+  "haveAccountQuestion": "Already have an account?",
+  "loginLink": "Log in",
+
+  "countryCodeLabel": "Country",
+  "countryDrc": "DR Congo",
+  "countryRwanda": "Rwanda",
+  "countryUganda": "Uganda",
+  "countryKenya": "Kenya",
+
+  "validationRequired": "This field is required.",
+  "validationInvalidPhone": "Enter a valid phone number.",
+  "validationInvalidEmail": "Enter a valid email address.",
+  "validationPasswordTooShort": "Password must be at least 8 characters.",
+
+  "errorGeneric": "Something went wrong. Please try again.",
+  "errorNetwork": "Can't reach the server. Check your connection and try again.",
+  "errorSessionExpired": "Your session has expired. Please log in again.",
+
+  "homeGreeting": "Hello, {name}",
+  "@homeGreeting": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "homeWelcome": "Your trips, tickets and payments — all in one place.",
+  "homeBuildNote": "You're signed in. The traveller experience — search, seats, Mobile Money and your QR tickets — is coming next.",
+  "tabSearch": "Search",
+  "tabTickets": "My Tickets",
+  "tabProfile": "Profile",
+  "logout": "Log out",
+
+  "roleCustomer": "Traveller",
+  "roleOperator": "Operator",
+  "roleAgent": "Agent",
+  "roleAdmin": "Administrator",
+    "roleUnknown": "Member",
+
+  "searchTitle": "Find a trip",
+  "searchFrom": "From",
+  "searchTo": "To",
+  "searchSelectCity": "Select a city",
+  "searchCitySearchHint": "Search a city",
+  "searchDate": "Date",
+  "searchPassengers": "Passengers",
+  "searchButton": "Search trips",
+  "searchSwapTooltip": "Swap origin and destination",
+  "searchSameCityError": "Origin and destination must be different.",
+
+  "sortLabel": "Sort by",
+  "sortRecommended": "Recommended",
+  "sortCheapest": "Cheapest",
+  "sortFastest": "Fastest",
+  "sortTopRated": "Top rated",
+
+  "resultsEmptyTitle": "No trips found",
+  "resultsEmptyBody": "There are no trips on this route for the selected date. Try another date.",
+  "resultsError": "We couldn't load trips. Please try again.",
+
+  "tripSelect": "Select",
+  "tripNew": "New",
+  "tripSeatsLeft": "{count, plural, =0{Full} =1{1 seat left} other{{count} seats left}}",
+  "@tripSeatsLeft": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "tripsFound": "{count, plural, =0{No trips} =1{1 trip} other{{count} trips}}",
+  "@tripsFound": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+    "amenitiesTitle": "Amenities",
+  "tripDepartureLabel": "Departure",
+  "tripArrivalLabel": "Arrival",
+  "totalLabel": "Total",
+  "seatChooseTitle": "Choose your seats",
+  "seatSelectedProgress": "{selected} of {total} selected",
+  "@seatSelectedProgress": {
+    "placeholders": {
+      "selected": { "type": "int" },
+      "total": { "type": "int" }
+    }
+  },
+  "seatAutoTitle": "Seats assigned automatically",
+  "seatAutoBody": "Your seat numbers are given when your booking is confirmed.",
+  "seatFront": "Front",
+  "seatLegendAvailable": "Available",
+  "seatLegendSelected": "Selected",
+  "seatLegendTaken": "Taken",
+  "checkoutTitle": "Checkout",
+  "passengerDetailsTitle": "Passenger details",
+  "passengerLabel": "Passenger {n}",
+  "@passengerLabel": {
+    "placeholders": {
+      "n": { "type": "int" }
+    }
+  },
+  "contactPhoneLabel": "Contact phone (optional)",
+  "paymentTitle": "Payment",
+  "networkLabel": "Mobile Money network",
+  "msisdnLabel": "Mobile Money number",
+  "payNow": "Pay {amount}",
+  "@payNow": {
+    "placeholders": {
+      "amount": { "type": "String" }
+    }
+  },
+  "seatChipLabel": "Seat {seat}",
+  "@seatChipLabel": {
+    "placeholders": {
+      "seat": { "type": "String" }
+    }
+  },
+  "payWaitingTitle": "Confirm on your phone",
+  "payWaitingBody": "We sent a payment request to {msisdn}. Approve it on your phone to confirm your booking.",
+  "@payWaitingBody": {
+    "placeholders": {
+      "msisdn": { "type": "String" }
+    }
+  },
+  "payReferenceLabel": "Payment reference",
+  "payStillWaiting": "Still waiting for confirmation. This can take a moment — tap refresh once you've approved it.",
+  "refreshStatus": "Refresh",
+  "paySuccessTitle": "Payment confirmed!",
+  "paySuccessBody": "Your booking {reference} is confirmed. Your ticket will be in My Tickets.",
+  "@paySuccessBody": {
+    "placeholders": {
+      "reference": { "type": "String" }
+    }
+  },
+  "payFailedTitle": "Payment failed",
+  "payFailedBody": "The payment didn't go through. Please try again.",
+  "doneAction": "Done",
+  "backAction": "Back",
+  "ticketsEmptyTitle": "No tickets yet",
+  "ticketsEmptyBody": "Your booked trips will appear here as e-tickets.",
+  "ticketsError": "We couldn't load your tickets. Pull down to try again.",
+  "ticketStatusValid": "Valid",
+  "ticketStatusUsed": "Used",
+  "ticketStatusCancelled": "Cancelled",
+  "ticketDetailTitle": "Your ticket",
+  "ticketShowAtBoarding": "Show this QR code to the agent at boarding.",
+  "ticketUsedNote": "This ticket has already been used.",
+  "ticketCancelledNote": "This ticket was cancelled.",
+  "ticketPassengerLabel": "Passenger",
+  "ticketSeatLabel": "Seat",
+  "ticketVehicleLabel": "Vehicle",
+  "ticketNumberLabel": "Booking reference"
+}
