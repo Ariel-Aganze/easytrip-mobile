@@ -18,7 +18,8 @@ class TicketDetailPage extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
     final material = MaterialLocalizations.of(context);
     final dateStr = material.formatFullDate(ticket.departure);
-    final timeStr = material.formatTimeOfDay(TimeOfDay.fromDateTime(ticket.departure));
+    final timeStr =
+        material.formatTimeOfDay(TimeOfDay.fromDateTime(ticket.departure));
     final active = ticket.status == TicketStatus.valid;
 
     return Scaffold(
@@ -31,13 +32,15 @@ class TicketDetailPage extends StatelessWidget {
             Text(
               '${ticket.origin} → ${ticket.destination}',
               textAlign: TextAlign.center,
-              style: textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.w700),
+              style: textTheme.headlineSmall
+                  ?.copyWith(fontWeight: FontWeight.w700),
             ),
             const SizedBox(height: 4),
             Text(
               ticket.operatorName,
               textAlign: TextAlign.center,
-              style: textTheme.titleMedium?.copyWith(color: scheme.onSurfaceVariant),
+              style: textTheme.titleMedium
+                  ?.copyWith(color: scheme.onSurfaceVariant),
             ),
             const SizedBox(height: 20),
 
@@ -78,7 +81,8 @@ class TicketDetailPage extends StatelessWidget {
               Text(
                 l10n.ticketShowAtBoarding,
                 textAlign: TextAlign.center,
-                style: textTheme.bodyMedium?.copyWith(color: scheme.onSurfaceVariant),
+                style: textTheme.bodyMedium
+                    ?.copyWith(color: scheme.onSurfaceVariant),
               )
             else
               _StatusNote(
@@ -99,11 +103,17 @@ class TicketDetailPage extends StatelessWidget {
               ),
               child: Column(
                 children: [
-                  _Row(label: l10n.tripDepartureLabel, value: '$dateStr · $timeStr'),
-                  _Row(label: l10n.ticketPassengerLabel, value: ticket.passengerName),
+                  _Row(
+                      label: l10n.tripDepartureLabel,
+                      value: '$dateStr · $timeStr'),
+                  _Row(
+                      label: l10n.ticketPassengerLabel,
+                      value: ticket.passengerName),
                   _Row(label: l10n.ticketSeatLabel, value: ticket.seatNumber),
                   _Row(label: l10n.ticketVehicleLabel, value: ticket.vehicle),
-                  _Row(label: l10n.ticketNumberLabel, value: ticket.bookingReference),
+                  _Row(
+                      label: l10n.ticketNumberLabel,
+                      value: ticket.bookingReference),
                   _Row(
                     label: l10n.totalLabel,
                     value: Money.format(ticket.amount, ticket.currency),
@@ -137,7 +147,8 @@ class _Row extends StatelessWidget {
           Expanded(
             child: Text(
               label,
-              style: textTheme.bodyMedium?.copyWith(color: scheme.onSurfaceVariant),
+              style: textTheme.bodyMedium
+                  ?.copyWith(color: scheme.onSurfaceVariant),
             ),
           ),
           const SizedBox(width: 12),
@@ -145,7 +156,8 @@ class _Row extends StatelessWidget {
             child: Text(
               value,
               textAlign: TextAlign.right,
-              style: textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w600),
+              style:
+                  textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w600),
             ),
           ),
         ],
@@ -166,11 +178,13 @@ class _StatusNote extends StatelessWidget {
     final fg = error ? scheme.onErrorContainer : scheme.onSurfaceVariant;
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
-      decoration: BoxDecoration(color: bg, borderRadius: BorderRadius.circular(12)),
+      decoration:
+          BoxDecoration(color: bg, borderRadius: BorderRadius.circular(12)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(error ? Icons.cancel_outlined : Icons.info_outline, size: 18, color: fg),
+          Icon(error ? Icons.cancel_outlined : Icons.info_outline,
+              size: 18, color: fg),
           const SizedBox(width: 8),
           Flexible(child: Text(text, style: TextStyle(color: fg))),
         ],

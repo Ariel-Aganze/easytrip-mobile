@@ -32,7 +32,8 @@ class SearchRemoteDataSourceImpl implements SearchRemoteDataSource {
       );
 
       final data = res.data;
-      final List rows = data is List ? data : (data['results'] as List? ?? const []);
+      final List rows =
+          data is List ? data : (data['results'] as List? ?? const []);
       return rows
           .map((e) => TripSummaryModel.fromJson(e as Map<String, dynamic>))
           .toList();

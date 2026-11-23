@@ -21,7 +21,8 @@ class SearchFormCubit extends Cubit<SearchFormState> {
       case Ok(value: final cities):
         emit(state.copyWith(status: LoadStatus.ready, cities: cities));
       case Err(failure: final failure):
-        emit(state.copyWith(status: LoadStatus.error, errorMessage: failure.message));
+        emit(state.copyWith(
+            status: LoadStatus.error, errorMessage: failure.message));
     }
   }
 }

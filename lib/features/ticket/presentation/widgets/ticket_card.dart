@@ -10,7 +10,8 @@ class TicketCard extends StatelessWidget {
   final Ticket ticket;
   final VoidCallback? onTap;
 
-  ({String label, Color bg, Color fg}) _statusChip(BuildContext context, AppLocalizations l10n) {
+  ({String label, Color bg, Color fg}) _statusChip(
+      BuildContext context, AppLocalizations l10n) {
     final scheme = Theme.of(context).colorScheme;
     return switch (ticket.status) {
       TicketStatus.valid => (
@@ -42,7 +43,8 @@ class TicketCard extends StatelessWidget {
     final scheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
     final chip = _statusChip(context, l10n);
-    final dateStr = MaterialLocalizations.of(context).formatMediumDate(ticket.departure);
+    final dateStr =
+        MaterialLocalizations.of(context).formatMediumDate(ticket.departure);
     final timeStr = MaterialLocalizations.of(context)
         .formatTimeOfDay(TimeOfDay.fromDateTime(ticket.departure));
 
@@ -67,12 +69,14 @@ class TicketCard extends StatelessWidget {
                   Expanded(
                     child: Text(
                       '${ticket.origin} → ${ticket.destination}',
-                      style: textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700),
+                      style: textTheme.titleMedium
+                          ?.copyWith(fontWeight: FontWeight.w700),
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
                   Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
                     decoration: BoxDecoration(
                       color: chip.bg,
                       borderRadius: BorderRadius.circular(20),
@@ -90,12 +94,14 @@ class TicketCard extends StatelessWidget {
               const SizedBox(height: 6),
               Text(
                 '$dateStr · $timeStr',
-                style: textTheme.bodyMedium?.copyWith(color: scheme.onSurfaceVariant),
+                style: textTheme.bodyMedium
+                    ?.copyWith(color: scheme.onSurfaceVariant),
               ),
               const SizedBox(height: 10),
               Row(
                 children: [
-                  Icon(Icons.person_outline, size: 18, color: scheme.onSurfaceVariant),
+                  Icon(Icons.person_outline,
+                      size: 18, color: scheme.onSurfaceVariant),
                   const SizedBox(width: 6),
                   Expanded(
                     child: Text(
@@ -104,9 +110,11 @@ class TicketCard extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                  Icon(Icons.event_seat_outlined, size: 18, color: scheme.onSurfaceVariant),
+                  Icon(Icons.event_seat_outlined,
+                      size: 18, color: scheme.onSurfaceVariant),
                   const SizedBox(width: 6),
-                  Text(l10n.seatChipLabel(ticket.seatNumber), style: textTheme.bodyMedium),
+                  Text(l10n.seatChipLabel(ticket.seatNumber),
+                      style: textTheme.bodyMedium),
                 ],
               ),
             ],

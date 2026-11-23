@@ -39,7 +39,8 @@ class _TicketsView extends StatelessWidget {
     );
   }
 
-  Widget _body(BuildContext context, TicketsState state, AppLocalizations l10n) {
+  Widget _body(
+      BuildContext context, TicketsState state, AppLocalizations l10n) {
     switch (state.status) {
       case LoadStatus.idle:
       case LoadStatus.loading:
@@ -66,7 +67,8 @@ class _TicketsView extends StatelessWidget {
     }
   }
 
-  Widget _list(BuildContext context, TicketsState state, AppLocalizations l10n) {
+  Widget _list(
+      BuildContext context, TicketsState state, AppLocalizations l10n) {
     return ListView(
       padding: const EdgeInsets.fromLTRB(16, 16, 16, 24),
       children: [
@@ -74,14 +76,18 @@ class _TicketsView extends StatelessWidget {
           padding: const EdgeInsets.only(bottom: 12, left: 4),
           child: Text(
             l10n.tabTickets,
-            style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.w700),
+            style: Theme.of(context)
+                .textTheme
+                .headlineSmall
+                ?.copyWith(fontWeight: FontWeight.w700),
           ),
         ),
         for (final ticket in state.tickets)
           TicketCard(
             ticket: ticket,
             onTap: () => Navigator.of(context).push(
-              MaterialPageRoute<void>(builder: (_) => TicketDetailPage(ticket: ticket)),
+              MaterialPageRoute<void>(
+                  builder: (_) => TicketDetailPage(ticket: ticket)),
             ),
           ),
       ],
@@ -126,14 +132,16 @@ class _Message extends StatelessWidget {
                     Text(
                       title,
                       textAlign: TextAlign.center,
-                      style: textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w600),
+                      style: textTheme.titleMedium
+                          ?.copyWith(fontWeight: FontWeight.w600),
                     ),
                     if (subtitle != null) ...[
                       const SizedBox(height: 6),
                       Text(
                         subtitle!,
                         textAlign: TextAlign.center,
-                        style: textTheme.bodyMedium?.copyWith(color: scheme.onSurfaceVariant),
+                        style: textTheme.bodyMedium
+                            ?.copyWith(color: scheme.onSurfaceVariant),
                       ),
                     ],
                     if (actionLabel != null && onAction != null) ...[

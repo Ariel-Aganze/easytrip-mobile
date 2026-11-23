@@ -23,8 +23,7 @@ class SearchQuery extends Equatable {
   final TripSortMode sort;
 
   /// Backend expects YYYY-MM-DD.
-  String get dateParam =>
-      '${date.year.toString().padLeft(4, '0')}-'
+  String get dateParam => '${date.year.toString().padLeft(4, '0')}-'
       '${date.month.toString().padLeft(2, '0')}-'
       '${date.day.toString().padLeft(2, '0')}';
 
@@ -41,6 +40,5 @@ class SearchQuery extends Equatable {
   }
 
   @override
-  List<Object?> get props =>
-      [originId, destinationId, date, passengers, sort];
+  List<Object?> get props => [originId, destinationId, date, passengers, sort];
 }

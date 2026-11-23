@@ -47,7 +47,9 @@ class TripDetailModel {
         : <String>[];
     final rawSeats = json['seats'];
     final seats = rawSeats is List
-        ? rawSeats.map((e) => SeatModel.fromJson(e as Map<String, dynamic>)).toList()
+        ? rawSeats
+            .map((e) => SeatModel.fromJson(e as Map<String, dynamic>))
+            .toList()
         : <SeatModel>[];
 
     return TripDetailModel(

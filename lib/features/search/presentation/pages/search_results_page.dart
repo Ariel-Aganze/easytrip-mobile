@@ -145,9 +145,7 @@ class _ResultsView extends StatelessWidget {
               child: Text(
                 l10n.tripsFound(state.trips.length),
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      color: Theme.of(context)
-                          .colorScheme
-                          .onSurfaceVariant,
+                      color: Theme.of(context).colorScheme.onSurfaceVariant,
                     ),
               ),
             ),

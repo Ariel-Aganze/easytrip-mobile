@@ -37,5 +37,6 @@ class CheckoutState extends Equatable {
   }
 
   @override
-  List<Object?> get props => [status, booking, payment, errorMessage, fieldErrors];
+  List<Object?> get props =>
+      [status, booking, payment, errorMessage, fieldErrors];
 }

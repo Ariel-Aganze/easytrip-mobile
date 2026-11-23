@@ -33,5 +33,6 @@ class TripDetailState extends Equatable {
   }
 
   @override
-  List<Object?> get props => [status, detail, seatStates, selectedSeats, errorMessage];
+  List<Object?> get props =>
+      [status, detail, seatStates, selectedSeats, errorMessage];
 }

@@ -118,16 +118,19 @@ class AppLocalizationsEn extends AppLocalizations {
   String get validationInvalidEmail => 'Enter a valid email address.';
 
   @override
-  String get validationPasswordTooShort => 'Password must be at least 8 characters.';
+  String get validationPasswordTooShort =>
+      'Password must be at least 8 characters.';
 
   @override
   String get errorGeneric => 'Something went wrong. Please try again.';
 
   @override
-  String get errorNetwork => 'Can\'t reach the server. Check your connection and try again.';
+  String get errorNetwork =>
+      'Can\'t reach the server. Check your connection and try again.';
 
   @override
-  String get errorSessionExpired => 'Your session has expired. Please log in again.';
+  String get errorSessionExpired =>
+      'Your session has expired. Please log in again.';
 
   @override
   String homeGreeting(String name) {
@@ -135,10 +138,12 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get homeWelcome => 'Your trips, tickets and payments — all in one place.';
+  String get homeWelcome =>
+      'Your trips, tickets and payments — all in one place.';
 
   @override
-  String get homeBuildNote => 'You\'re signed in. The traveller experience — search, seats, Mobile Money and your QR tickets — is coming next.';
+  String get homeBuildNote =>
+      'You\'re signed in. The traveller experience — search, seats, Mobile Money and your QR tickets — is coming next.';
 
   @override
   String get tabSearch => 'Search';
@@ -216,7 +221,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get resultsEmptyTitle => 'No trips found';
 
   @override
-  String get resultsEmptyBody => 'There are no trips on this route for the selected date. Try another date.';
+  String get resultsEmptyBody =>
+      'There are no trips on this route for the selected date. Try another date.';
 
   @override
   String get resultsError => 'We couldn\'t load trips. Please try again.';
@@ -275,7 +281,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get seatAutoTitle => 'Seats assigned automatically';
 
   @override
-  String get seatAutoBody => 'Your seat numbers are given when your booking is confirmed.';
+  String get seatAutoBody =>
+      'Your seat numbers are given when your booking is confirmed.';
 
   @override
   String get seatFront => 'Front';
@@ -334,7 +341,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get payReferenceLabel => 'Payment reference';
 
   @override
-  String get payStillWaiting => 'Still waiting for confirmation. This can take a moment — tap refresh once you\'ve approved it.';
+  String get payStillWaiting =>
+      'Still waiting for confirmation. This can take a moment — tap refresh once you\'ve approved it.';
 
   @override
   String get refreshStatus => 'Refresh';
@@ -351,7 +359,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get payFailedTitle => 'Payment failed';
 
   @override
-  String get payFailedBody => 'The payment didn\'t go through. Please try again.';
+  String get payFailedBody =>
+      'The payment didn\'t go through. Please try again.';
 
   @override
   String get doneAction => 'Done';
@@ -363,10 +372,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get ticketsEmptyTitle => 'No tickets yet';
 
   @override
-  String get ticketsEmptyBody => 'Your booked trips will appear here as e-tickets.';
+  String get ticketsEmptyBody =>
+      'Your booked trips will appear here as e-tickets.';
 
   @override
-  String get ticketsError => 'We couldn\'t load your tickets. Pull down to try again.';
+  String get ticketsError =>
+      'We couldn\'t load your tickets. Pull down to try again.';
 
   @override
   String get ticketStatusValid => 'Valid';
@@ -381,7 +392,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get ticketDetailTitle => 'Your ticket';
 
   @override
-  String get ticketShowAtBoarding => 'Show this QR code to the agent at boarding.';
+  String get ticketShowAtBoarding =>
+      'Show this QR code to the agent at boarding.';
 
   @override
   String get ticketUsedNote => 'This ticket has already been used.';

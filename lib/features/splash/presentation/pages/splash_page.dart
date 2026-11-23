@@ -43,8 +43,8 @@ class _SplashPageState extends State<SplashPage>
       parent: _controller,
       curve: const Interval(0.35, 0.7, curve: Curves.easeOut),
     );
-    _wordSlide = Tween<Offset>(begin: const Offset(0, 0.4), end: Offset.zero)
-        .animate(
+    _wordSlide =
+        Tween<Offset>(begin: const Offset(0, 0.4), end: Offset.zero).animate(
       CurvedAnimation(
         parent: _controller,
         curve: const Interval(0.35, 0.75, curve: Curves.easeOut),
@@ -133,7 +133,8 @@ class _SplashPageState extends State<SplashPage>
                     height: 26,
                     child: CircularProgressIndicator(
                       strokeWidth: 2.6,
-                      valueColor: AlwaysStoppedAnimation<Color>(scheme.onPrimary),
+                      valueColor:
+                          AlwaysStoppedAnimation<Color>(scheme.onPrimary),
                     ),
                   ),
                 ),

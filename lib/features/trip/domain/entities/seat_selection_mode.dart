@@ -4,5 +4,7 @@ enum SeatSelectionMode {
   auto; // seat assigned automatically
 
   static SeatSelectionMode fromApi(String value) =>
-      value.toUpperCase() == 'FREE' ? SeatSelectionMode.free : SeatSelectionMode.auto;
+      value.toUpperCase() == 'FREE'
+          ? SeatSelectionMode.free
+          : SeatSelectionMode.auto;
 }

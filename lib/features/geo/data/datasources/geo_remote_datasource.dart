@@ -30,13 +30,15 @@ class GeoRemoteDataSourceImpl implements GeoRemoteDataSource {
 
         if (data is List) {
           // Unpaginated fallback.
-          cities.addAll(data.map((e) => CityModel.fromJson(e as Map<String, dynamic>)));
+          cities.addAll(
+              data.map((e) => CityModel.fromJson(e as Map<String, dynamic>)));
           break;
         }
 
         final map = data as Map<String, dynamic>;
         final results = (map['results'] as List? ?? const []);
-        cities.addAll(results.map((e) => CityModel.fromJson(e as Map<String, dynamic>)));
+        cities.addAll(
+            results.map((e) => CityModel.fromJson(e as Map<String, dynamic>)));
 
         final next = map['next'] as String?;
         // `next` is an absolute URL; Dio accepts it directly.

@@ -33,7 +33,8 @@ class TripDetailCubit extends Cubit<TripDetailState> {
     final detailResult = await _getTripDetail(tripId);
     switch (detailResult) {
       case Err(failure: final failure):
-        emit(state.copyWith(status: LoadStatus.error, errorMessage: failure.message));
+        emit(state.copyWith(
+            status: LoadStatus.error, errorMessage: failure.message));
         return;
       case Ok(value: final detail):
         final seatResult = await _getSeatMap(tripId);

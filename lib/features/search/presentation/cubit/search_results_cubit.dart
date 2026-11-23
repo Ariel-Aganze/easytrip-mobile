@@ -17,13 +17,15 @@ class SearchResultsCubit extends Cubit<SearchResultsState> {
   final SearchTrips _searchTrips;
 
   Future<void> run(SearchQuery query) async {
-    emit(state.copyWith(status: LoadStatus.loading, query: query, clearError: true));
+    emit(state.copyWith(
+        status: LoadStatus.loading, query: query, clearError: true));
     final result = await _searchTrips(query);
     switch (result) {
       case Ok(value: final trips):
         emit(state.copyWith(status: LoadStatus.ready, trips: trips));
       case Err(failure: final failure):
-        emit(state.copyWith(status: LoadStatus.error, errorMessage: failure.message));
+        emit(state.copyWith(
+            status: LoadStatus.error, errorMessage: failure.message));
     }
   }
 

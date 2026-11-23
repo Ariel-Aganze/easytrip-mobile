@@ -82,7 +82,8 @@ class TicketModel {
       paymentStatus: paymentStatus,
       status: TicketStatus.fromApi(status),
       qrToken: qrToken,
-      issuedAt: issuedAt != null ? DateTime.tryParse(issuedAt!)?.toLocal() : null,
+      issuedAt:
+          issuedAt != null ? DateTime.tryParse(issuedAt!)?.toLocal() : null,
       usedAt: usedAt != null ? DateTime.tryParse(usedAt!)?.toLocal() : null,
     );
   }

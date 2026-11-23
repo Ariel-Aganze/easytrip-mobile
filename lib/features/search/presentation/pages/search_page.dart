@@ -60,7 +60,9 @@ class _SearchViewState extends State<_SearchView> {
 
   void _search() {
     setState(() => _showErrors = true);
-    if (_origin == null || _destination == null || _origin!.id == _destination!.id) {
+    if (_origin == null ||
+        _destination == null ||
+        _origin!.id == _destination!.id) {
       return;
     }
     final query = SearchQuery(
@@ -82,7 +84,8 @@ class _SearchViewState extends State<_SearchView> {
 
     return BlocBuilder<SearchFormCubit, SearchFormState>(
       builder: (context, state) {
-        if (state.status == LoadStatus.loading || state.status == LoadStatus.idle) {
+        if (state.status == LoadStatus.loading ||
+            state.status == LoadStatus.idle) {
           return const Center(child: CircularProgressIndicator());
         }
         if (state.status == LoadStatus.error) {
@@ -96,7 +99,8 @@ class _SearchViewState extends State<_SearchView> {
     );
   }
 
-  Widget _buildForm(BuildContext context, List<City> cities, AppLocalizations l10n) {
+  Widget _buildForm(
+      BuildContext context, List<City> cities, AppLocalizations l10n) {
     final scheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
     final sameCity = _origin != null &&
@@ -113,7 +117,8 @@ class _SearchViewState extends State<_SearchView> {
             children: [
               Text(
                 l10n.searchTitle,
-                style: textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.w700),
+                style: textTheme.headlineSmall
+                    ?.copyWith(fontWeight: FontWeight.w700),
               ),
               const SizedBox(height: 20),
 
@@ -128,7 +133,9 @@ class _SearchViewState extends State<_SearchView> {
                         cities: cities,
                         selected: _origin,
                         excludeId: _destination?.id,
-                        errorText: _showErrors && _origin == null ? l10n.validationRequired : null,
+                        errorText: _showErrors && _origin == null
+                            ? l10n.validationRequired
+                            : null,
                         onSelected: (c) => setState(() => _origin = c),
                       ),
                       const SizedBox(height: 12),

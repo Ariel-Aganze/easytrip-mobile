@@ -56,35 +56,41 @@ class TripCard extends StatelessWidget {
                   Expanded(
                     child: Text(
                       trip.operatorName,
-                      style: textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700),
+                      style: textTheme.titleMedium
+                          ?.copyWith(fontWeight: FontWeight.w700),
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
                   if (trip.hasRating)
                     Row(
                       children: [
-                        Icon(Icons.star_rounded, size: 18, color: scheme.tertiary),
+                        Icon(Icons.star_rounded,
+                            size: 18, color: scheme.tertiary),
                         const SizedBox(width: 2),
                         Text(
                           trip.ratingAverage.toStringAsFixed(1),
-                          style: textTheme.labelLarge?.copyWith(fontWeight: FontWeight.w700),
+                          style: textTheme.labelLarge
+                              ?.copyWith(fontWeight: FontWeight.w700),
                         ),
                         Text(
                           ' (${trip.ratingCount})',
-                          style: textTheme.bodySmall?.copyWith(color: scheme.onSurfaceVariant),
+                          style: textTheme.bodySmall
+                              ?.copyWith(color: scheme.onSurfaceVariant),
                         ),
                       ],
                     )
                   else
                     Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 8, vertical: 2),
                       decoration: BoxDecoration(
                         color: scheme.secondaryContainer,
                         borderRadius: BorderRadius.circular(20),
                       ),
                       child: Text(
                         l10n.tripNew,
-                        style: textTheme.labelSmall?.copyWith(color: scheme.onSecondaryContainer),
+                        style: textTheme.labelSmall
+                            ?.copyWith(color: scheme.onSecondaryContainer),
                       ),
                     ),
                 ],
@@ -97,7 +103,8 @@ class TripCard extends StatelessWidget {
                 children: [
                   Text(
                     _time(context, trip.departure),
-                    style: textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w700),
+                    style: textTheme.titleLarge
+                        ?.copyWith(fontWeight: FontWeight.w700),
                   ),
                   Expanded(
                     child: Padding(
@@ -106,14 +113,20 @@ class TripCard extends StatelessWidget {
                         children: [
                           Text(
                             _duration(trip.durationMinutes),
-                            style: textTheme.bodySmall?.copyWith(color: scheme.onSurfaceVariant),
+                            style: textTheme.bodySmall
+                                ?.copyWith(color: scheme.onSurfaceVariant),
                           ),
                           const SizedBox(height: 2),
                           Row(
                             children: [
-                              Expanded(child: Divider(color: scheme.outlineVariant, height: 1)),
-                              Icon(Icons.directions_bus_rounded, size: 16, color: scheme.onSurfaceVariant),
-                              Expanded(child: Divider(color: scheme.outlineVariant, height: 1)),
+                              Expanded(
+                                  child: Divider(
+                                      color: scheme.outlineVariant, height: 1)),
+                              Icon(Icons.directions_bus_rounded,
+                                  size: 16, color: scheme.onSurfaceVariant),
+                              Expanded(
+                                  child: Divider(
+                                      color: scheme.outlineVariant, height: 1)),
                             ],
                           ),
                         ],
@@ -122,14 +135,16 @@ class TripCard extends StatelessWidget {
                   ),
                   Text(
                     arrival != null ? _time(context, arrival) : '—',
-                    style: textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w700),
+                    style: textTheme.titleLarge
+                        ?.copyWith(fontWeight: FontWeight.w700),
                   ),
                 ],
               ),
               const SizedBox(height: 4),
               Text(
                 trip.vehicleType,
-                style: textTheme.bodySmall?.copyWith(color: scheme.onSurfaceVariant),
+                style: textTheme.bodySmall
+                    ?.copyWith(color: scheme.onSurfaceVariant),
               ),
 
               const SizedBox(height: 14),
@@ -144,8 +159,10 @@ class TripCard extends StatelessWidget {
                     child: Text(
                       l10n.tripSeatsLeft(trip.seatsAvailable),
                       style: textTheme.bodyMedium?.copyWith(
-                        color: seatsLow ? scheme.error : scheme.onSurfaceVariant,
-                        fontWeight: seatsLow ? FontWeight.w600 : FontWeight.w400,
+                        color:
+                            seatsLow ? scheme.error : scheme.onSurfaceVariant,
+                        fontWeight:
+                            seatsLow ? FontWeight.w600 : FontWeight.w400,
                       ),
                     ),
                   ),

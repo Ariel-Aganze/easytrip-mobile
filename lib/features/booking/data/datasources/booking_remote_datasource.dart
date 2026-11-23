@@ -40,7 +40,8 @@ class BookingRemoteDataSourceImpl implements BookingRemoteDataSource {
       final body = <String, dynamic>{
         'trip': tripId,
         'passengers': passengers.map((p) => p.toJson()).toList(),
-        if (contactPhone != null && contactPhone.isNotEmpty) 'contact_phone': contactPhone,
+        if (contactPhone != null && contactPhone.isNotEmpty)
+          'contact_phone': contactPhone,
       };
       final res = await _dio.post<dynamic>('/bookings/', data: body);
       return BookingModel.fromJson(res.data as Map<String, dynamic>);

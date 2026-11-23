@@ -30,7 +30,9 @@ class BookingModel {
   factory BookingModel.fromJson(Map<String, dynamic> json) {
     final rawPassengers = json['passengers'];
     final passengers = rawPassengers is List
-        ? rawPassengers.map((e) => PassengerModel.fromJson(e as Map<String, dynamic>)).toList()
+        ? rawPassengers
+            .map((e) => PassengerModel.fromJson(e as Map<String, dynamic>))
+            .toList()
         : <PassengerModel>[];
     return BookingModel(
       id: json['id'].toString(),
@@ -55,7 +57,9 @@ class BookingModel {
       unitPrice: Money.parse(unitPrice),
       ticketTotal: Money.parse(ticketTotal),
       passengers: passengers.map((p) => p.toEntity()).toList(),
-      holdExpiresAt: holdExpiresAt != null ? DateTime.tryParse(holdExpiresAt!)?.toLocal() : null,
+      holdExpiresAt: holdExpiresAt != null
+          ? DateTime.tryParse(holdExpiresAt!)?.toLocal()
+          : null,
     );
   }
 }

@@ -90,7 +90,8 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   @override
   Future<void> logout(String refreshToken) async {
     try {
-      await _dio.post<dynamic>('/auth/logout/', data: {'refresh': refreshToken});
+      await _dio
+          .post<dynamic>('/auth/logout/', data: {'refresh': refreshToken});
     } on DioException catch (e) {
       throw mapDioException(e);
     }

@@ -20,7 +20,8 @@ class TicketsCubit extends Cubit<TicketsState> {
       case Ok(value: final tickets):
         emit(state.copyWith(status: LoadStatus.ready, tickets: tickets));
       case Err(failure: final failure):
-        emit(state.copyWith(status: LoadStatus.error, errorMessage: failure.message));
+        emit(state.copyWith(
+            status: LoadStatus.error, errorMessage: failure.message));
     }
   }
 }

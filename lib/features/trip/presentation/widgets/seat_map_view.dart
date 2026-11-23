@@ -44,9 +44,12 @@ class SeatMapView extends StatelessWidget {
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Icon(Icons.airline_seat_recline_normal, size: 16, color: scheme.onSurfaceVariant),
+              Icon(Icons.airline_seat_recline_normal,
+                  size: 16, color: scheme.onSurfaceVariant),
               const SizedBox(width: 6),
-              Text(l10n.seatFront, style: TextStyle(color: scheme.onSurfaceVariant, fontSize: 12)),
+              Text(l10n.seatFront,
+                  style:
+                      TextStyle(color: scheme.onSurfaceVariant, fontSize: 12)),
             ],
           ),
         ),
@@ -120,7 +123,8 @@ class SeatMapView extends StatelessWidget {
               alignment: Alignment.center,
               child: Text(
                 seat.number,
-                style: TextStyle(color: fg, fontSize: 12, fontWeight: FontWeight.w600),
+                style: TextStyle(
+                    color: fg, fontSize: 12, fontWeight: FontWeight.w600),
               ),
             ),
           ),
@@ -135,9 +139,11 @@ class SeatMapView extends StatelessWidget {
       spacing: 16,
       runSpacing: 8,
       children: [
-        _legendItem(scheme.surface, scheme.outlineVariant, l10n.seatLegendAvailable),
+        _legendItem(
+            scheme.surface, scheme.outlineVariant, l10n.seatLegendAvailable),
         _legendItem(scheme.primary, scheme.primary, l10n.seatLegendSelected),
-        _legendItem(scheme.surfaceContainerHighest, scheme.surfaceContainerHighest, l10n.seatLegendTaken),
+        _legendItem(scheme.surfaceContainerHighest,
+            scheme.surfaceContainerHighest, l10n.seatLegendTaken),
       ],
     );
   }

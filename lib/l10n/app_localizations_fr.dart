@@ -67,7 +67,8 @@ class AppLocalizationsFr extends AppLocalizations {
   String get registerTitle => 'Créez votre compte';
 
   @override
-  String get registerSubtitle => 'Réservez des trajets dans toute la région en quelques minutes.';
+  String get registerSubtitle =>
+      'Réservez des trajets dans toute la région en quelques minutes.';
 
   @override
   String get fullNameLabel => 'Nom complet';
@@ -112,22 +113,26 @@ class AppLocalizationsFr extends AppLocalizations {
   String get validationRequired => 'Ce champ est obligatoire.';
 
   @override
-  String get validationInvalidPhone => 'Saisissez un numéro de téléphone valide.';
+  String get validationInvalidPhone =>
+      'Saisissez un numéro de téléphone valide.';
 
   @override
   String get validationInvalidEmail => 'Saisissez une adresse e-mail valide.';
 
   @override
-  String get validationPasswordTooShort => 'Le mot de passe doit contenir au moins 8 caractères.';
+  String get validationPasswordTooShort =>
+      'Le mot de passe doit contenir au moins 8 caractères.';
 
   @override
   String get errorGeneric => 'Une erreur s\'est produite. Veuillez réessayer.';
 
   @override
-  String get errorNetwork => 'Impossible de joindre le serveur. Vérifiez votre connexion et réessayez.';
+  String get errorNetwork =>
+      'Impossible de joindre le serveur. Vérifiez votre connexion et réessayez.';
 
   @override
-  String get errorSessionExpired => 'Votre session a expiré. Veuillez vous reconnecter.';
+  String get errorSessionExpired =>
+      'Votre session a expiré. Veuillez vous reconnecter.';
 
   @override
   String homeGreeting(String name) {
@@ -135,10 +140,12 @@ class AppLocalizationsFr extends AppLocalizations {
   }
 
   @override
-  String get homeWelcome => 'Vos trajets, billets et paiements — au même endroit.';
+  String get homeWelcome =>
+      'Vos trajets, billets et paiements — au même endroit.';
 
   @override
-  String get homeBuildNote => 'Vous êtes connecté. L\'expérience voyageur — recherche, sièges, Mobile Money et vos billets QR — arrive bientôt.';
+  String get homeBuildNote =>
+      'Vous êtes connecté. L\'expérience voyageur — recherche, sièges, Mobile Money et vos billets QR — arrive bientôt.';
 
   @override
   String get tabSearch => 'Recherche';
@@ -195,7 +202,8 @@ class AppLocalizationsFr extends AppLocalizations {
   String get searchSwapTooltip => 'Inverser départ et arrivée';
 
   @override
-  String get searchSameCityError => 'Le départ et l\'arrivée doivent être différents.';
+  String get searchSameCityError =>
+      'Le départ et l\'arrivée doivent être différents.';
 
   @override
   String get sortLabel => 'Trier par';
@@ -216,10 +224,12 @@ class AppLocalizationsFr extends AppLocalizations {
   String get resultsEmptyTitle => 'Aucun trajet trouvé';
 
   @override
-  String get resultsEmptyBody => 'Aucun trajet sur cet itinéraire à la date choisie. Essayez une autre date.';
+  String get resultsEmptyBody =>
+      'Aucun trajet sur cet itinéraire à la date choisie. Essayez une autre date.';
 
   @override
-  String get resultsError => 'Impossible de charger les trajets. Veuillez réessayer.';
+  String get resultsError =>
+      'Impossible de charger les trajets. Veuillez réessayer.';
 
   @override
   String get tripSelect => 'Choisir';
@@ -275,7 +285,8 @@ class AppLocalizationsFr extends AppLocalizations {
   String get seatAutoTitle => 'Sièges attribués automatiquement';
 
   @override
-  String get seatAutoBody => 'Vos numéros de siège vous sont communiqués une fois la réservation confirmée.';
+  String get seatAutoBody =>
+      'Vos numéros de siège vous sont communiqués une fois la réservation confirmée.';
 
   @override
   String get seatFront => 'Avant';
@@ -334,7 +345,8 @@ class AppLocalizationsFr extends AppLocalizations {
   String get payReferenceLabel => 'Référence de paiement';
 
   @override
-  String get payStillWaiting => 'En attente de confirmation. Cela peut prendre un instant — appuyez sur actualiser une fois approuvé.';
+  String get payStillWaiting =>
+      'En attente de confirmation. Cela peut prendre un instant — appuyez sur actualiser une fois approuvé.';
 
   @override
   String get refreshStatus => 'Actualiser';
@@ -351,7 +363,8 @@ class AppLocalizationsFr extends AppLocalizations {
   String get payFailedTitle => 'Échec du paiement';
 
   @override
-  String get payFailedBody => 'Le paiement n\'a pas abouti. Veuillez réessayer.';
+  String get payFailedBody =>
+      'Le paiement n\'a pas abouti. Veuillez réessayer.';
 
   @override
   String get doneAction => 'Terminé';
@@ -363,10 +376,12 @@ class AppLocalizationsFr extends AppLocalizations {
   String get ticketsEmptyTitle => 'Aucun billet pour l\'instant';
 
   @override
-  String get ticketsEmptyBody => 'Vos trajets réservés apparaîtront ici sous forme de billets électroniques.';
+  String get ticketsEmptyBody =>
+      'Vos trajets réservés apparaîtront ici sous forme de billets électroniques.';
 
   @override
-  String get ticketsError => 'Impossible de charger vos billets. Tirez vers le bas pour réessayer.';
+  String get ticketsError =>
+      'Impossible de charger vos billets. Tirez vers le bas pour réessayer.';
 
   @override
   String get ticketStatusValid => 'Valide';
@@ -381,7 +396,8 @@ class AppLocalizationsFr extends AppLocalizations {
   String get ticketDetailTitle => 'Votre billet';
 
   @override
-  String get ticketShowAtBoarding => 'Présentez ce code QR à l\'agent à l\'embarquement.';
+  String get ticketShowAtBoarding =>
+      'Présentez ce code QR à l\'agent à l\'embarquement.';
 
   @override
   String get ticketUsedNote => 'Ce billet a déjà été utilisé.';

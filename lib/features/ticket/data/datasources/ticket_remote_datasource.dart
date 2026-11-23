@@ -18,7 +18,8 @@ class TicketRemoteDataSourceImpl implements TicketRemoteDataSource {
     try {
       final res = await _dio.get<dynamic>('/tickets/');
       final data = res.data;
-      final List rows = data is List ? data : (data['results'] as List? ?? const []);
+      final List rows =
+          data is List ? data : (data['results'] as List? ?? const []);
       return rows
           .map((e) => TicketModel.fromJson(e as Map<String, dynamic>))
           .toList();

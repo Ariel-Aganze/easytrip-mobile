@@ -64,8 +64,9 @@ class AuthInterceptor extends QueuedInterceptor {
     // If another queued 401 already refreshed the token, just replay.
     final usedAuth = requestOptions.headers['Authorization'] as String?;
     final currentToken = await tokenStorage.readAccessToken();
-    final currentAuth =
-        (currentToken != null && currentToken.isNotEmpty) ? 'Bearer $currentToken' : null;
+    final currentAuth = (currentToken != null && currentToken.isNotEmpty)
+        ? 'Bearer $currentToken'
+        : null;
 
     bool refreshed;
     if (currentAuth != null && currentAuth != usedAuth) {
@@ -125,7 +126,8 @@ class AuthInterceptor extends QueuedInterceptor {
       if (data is! Map) return false;
       final access = data['access'] as String?;
       if (access == null) return false;
-      final rotated = data['refresh'] as String?; // usually present (rotation on)
+      final rotated =
+          data['refresh'] as String?; // usually present (rotation on)
       if (rotated != null) {
         await tokenStorage.saveTokens(access: access, refresh: rotated);
       } else {

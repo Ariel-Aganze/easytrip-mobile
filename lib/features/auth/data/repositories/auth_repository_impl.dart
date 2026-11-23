@@ -20,7 +20,8 @@ class AuthRepositoryImpl implements AuthRepository {
     required String password,
   }) async {
     try {
-      final res = await remote.login(phoneNumber: phoneNumber, password: password);
+      final res =
+          await remote.login(phoneNumber: phoneNumber, password: password);
       await tokenStorage.saveTokens(access: res.access, refresh: res.refresh);
       return Ok(res.user.toEntity());
     } catch (e) {
@@ -43,7 +44,8 @@ class AuthRepositoryImpl implements AuthRepository {
         password: password,
       );
       // Register returns the user but no tokens → immediately log in.
-      final res = await remote.login(phoneNumber: phoneNumber, password: password);
+      final res =
+          await remote.login(phoneNumber: phoneNumber, password: password);
       await tokenStorage.saveTokens(access: res.access, refresh: res.refresh);
       return Ok(res.user.toEntity());
     } catch (e) {
