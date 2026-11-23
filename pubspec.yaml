@@ -35,6 +35,8 @@ dependencies:
   # i18n message formatting (version is pinned by flutter_localizations)
   intl: 0.19.0
   qr_flutter: 4.1.0
+  # Camera QR scanning for boarding agents (ML Kit on Android, Vision on iOS).
+  mobile_scanner: 5.2.3
   cupertino_icons: ^1.0.8
 
 dev_dependencies:

@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+
+import 'package:easytrip/core/router/app_routes.dart';
+import 'package:easytrip/core/router/route_args.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:easytrip/core/di/injector.dart';
@@ -7,7 +11,6 @@ import 'package:easytrip/core/utils/money_formatter.dart';
 import 'package:easytrip/l10n/app_localizations.dart';
 import 'package:easytrip/features/trip/presentation/cubit/trip_detail_cubit.dart';
 import 'package:easytrip/features/trip/presentation/widgets/seat_map_view.dart';
-import 'package:easytrip/features/booking/presentation/pages/checkout_page.dart';
 
 class TripDetailPage extends StatelessWidget {
   const TripDetailPage({
@@ -324,17 +327,16 @@ class _BottomBar extends StatelessWidget {
               child: FilledButton(
                 onPressed: canContinue
                     ? () {
-                        Navigator.of(context).push(
-                          MaterialPageRoute<void>(
-                            builder: (_) => CheckoutPage(
-                              tripId: detail.id,
-                              passengerCount: cubit.passengers,
-                              selectedSeats: state.selectedSeats,
-                              unitPrice: detail.price,
-                              currency: detail.currency,
-                              routeLabel:
-                                  '${detail.origin} → ${detail.destination}',
-                            ),
+                        context.push(
+                          AppRoutes.checkoutPath(detail.id),
+                          extra: CheckoutArgs(
+                            passengerCount: cubit.passengers,
+                            selectedSeats: state.selectedSeats,
+                            unitPrice: detail.price,
+                            currency: detail.currency,
+                            routeLabel:
+                                '${detail.origin} → ${detail.destination}',
+                            paymentOptions: detail.paymentOptions,
                           ),
                         );
                       }

@@ -1,20 +1,16 @@
 {
   "@@locale": "en",
-
   "appName": "EasyTrip",
   "tagline": "The whole region, one journey away.",
-
   "actionContinue": "Continue",
   "actionCancel": "Cancel",
   "actionRetry": "Retry",
   "actionClose": "Close",
   "loading": "Loading…",
   "comingSoon": "Coming soon",
-
   "languageName": "English",
   "switchToFrench": "FR",
   "switchToEnglish": "EN",
-
   "loginTitle": "Welcome back",
   "loginSubtitle": "Log in to continue your journey.",
   "phoneLabel": "Phone number",
@@ -23,7 +19,6 @@
   "loginButton": "Log in",
   "noAccountQuestion": "Don't have an account?",
   "signUpLink": "Sign up",
-
   "registerTitle": "Create your account",
   "registerSubtitle": "Book trips across the region in minutes.",
   "fullNameLabel": "Full name",
@@ -34,26 +29,24 @@
   "registerButton": "Create account",
   "haveAccountQuestion": "Already have an account?",
   "loginLink": "Log in",
-
   "countryCodeLabel": "Country",
   "countryDrc": "DR Congo",
   "countryRwanda": "Rwanda",
   "countryUganda": "Uganda",
   "countryKenya": "Kenya",
-
   "validationRequired": "This field is required.",
   "validationInvalidPhone": "Enter a valid phone number.",
   "validationInvalidEmail": "Enter a valid email address.",
   "validationPasswordTooShort": "Password must be at least 8 characters.",
-
   "errorGeneric": "Something went wrong. Please try again.",
   "errorNetwork": "Can't reach the server. Check your connection and try again.",
   "errorSessionExpired": "Your session has expired. Please log in again.",
-
   "homeGreeting": "Hello, {name}",
   "@homeGreeting": {
     "placeholders": {
-      "name": { "type": "String" }
+      "name": {
+        "type": "String"
+      }
     }
   },
   "homeWelcome": "Your trips, tickets and payments — all in one place.",
@@ -62,13 +55,11 @@
   "tabTickets": "My Tickets",
   "tabProfile": "Profile",
   "logout": "Log out",
-
   "roleCustomer": "Traveller",
   "roleOperator": "Operator",
   "roleAgent": "Agent",
   "roleAdmin": "Administrator",
-    "roleUnknown": "Member",
-
+  "roleUnknown": "Member",
   "searchTitle": "Find a trip",
   "searchFrom": "From",
   "searchTo": "To",
@@ -79,32 +70,33 @@
   "searchButton": "Search trips",
   "searchSwapTooltip": "Swap origin and destination",
   "searchSameCityError": "Origin and destination must be different.",
-
   "sortLabel": "Sort by",
   "sortRecommended": "Recommended",
   "sortCheapest": "Cheapest",
   "sortFastest": "Fastest",
   "sortTopRated": "Top rated",
-
   "resultsEmptyTitle": "No trips found",
   "resultsEmptyBody": "There are no trips on this route for the selected date. Try another date.",
   "resultsError": "We couldn't load trips. Please try again.",
-
   "tripSelect": "Select",
   "tripNew": "New",
   "tripSeatsLeft": "{count, plural, =0{Full} =1{1 seat left} other{{count} seats left}}",
   "@tripSeatsLeft": {
     "placeholders": {
-      "count": { "type": "int" }
+      "count": {
+        "type": "int"
+      }
     }
   },
   "tripsFound": "{count, plural, =0{No trips} =1{1 trip} other{{count} trips}}",
   "@tripsFound": {
     "placeholders": {
-      "count": { "type": "int" }
+      "count": {
+        "type": "int"
+      }
     }
   },
-    "amenitiesTitle": "Amenities",
+  "amenitiesTitle": "Amenities",
   "tripDepartureLabel": "Departure",
   "tripArrivalLabel": "Arrival",
   "totalLabel": "Total",
@@ -112,8 +104,12 @@
   "seatSelectedProgress": "{selected} of {total} selected",
   "@seatSelectedProgress": {
     "placeholders": {
-      "selected": { "type": "int" },
-      "total": { "type": "int" }
+      "selected": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
     }
   },
   "seatAutoTitle": "Seats assigned automatically",
@@ -127,7 +123,9 @@
   "passengerLabel": "Passenger {n}",
   "@passengerLabel": {
     "placeholders": {
-      "n": { "type": "int" }
+      "n": {
+        "type": "int"
+      }
     }
   },
   "contactPhoneLabel": "Contact phone (optional)",
@@ -137,20 +135,26 @@
   "payNow": "Pay {amount}",
   "@payNow": {
     "placeholders": {
-      "amount": { "type": "String" }
+      "amount": {
+        "type": "String"
+      }
     }
   },
   "seatChipLabel": "Seat {seat}",
   "@seatChipLabel": {
     "placeholders": {
-      "seat": { "type": "String" }
+      "seat": {
+        "type": "String"
+      }
     }
   },
   "payWaitingTitle": "Confirm on your phone",
   "payWaitingBody": "We sent a payment request to {msisdn}. Approve it on your phone to confirm your booking.",
   "@payWaitingBody": {
     "placeholders": {
-      "msisdn": { "type": "String" }
+      "msisdn": {
+        "type": "String"
+      }
     }
   },
   "payReferenceLabel": "Payment reference",
@@ -160,7 +164,9 @@
   "paySuccessBody": "Your booking {reference} is confirmed. Your ticket will be in My Tickets.",
   "@paySuccessBody": {
     "placeholders": {
-      "reference": { "type": "String" }
+      "reference": {
+        "type": "String"
+      }
     }
   },
   "payFailedTitle": "Payment failed",
@@ -180,5 +186,102 @@
   "ticketPassengerLabel": "Passenger",
   "ticketSeatLabel": "Seat",
   "ticketVehicleLabel": "Vehicle",
-  "ticketNumberLabel": "Booking reference"
+  "ticketNumberLabel": "Booking reference",
+  "tabBookings": "Bookings",
+  "accountTitle": "My account",
+  "profileTitle": "Profile",
+  "saveAction": "Save",
+  "profileSaved": "Profile saved.",
+  "phoneVerified": "Verified",
+  "phoneNotVerified": "Not verified",
+  "phoneVerifyHint": "We'll text you a 6-digit code to confirm this number is yours.",
+  "smsCodeLabel": "6-digit code",
+  "sendCode": "Send code",
+  "resendCode": "Send a new code",
+  "codeSent": "Code sent by SMS.",
+  "verifyAction": "Verify",
+  "phoneVerifiedDone": "Your phone number is verified.",
+  "currentPassword": "Current password",
+  "newPassword": "New password",
+  "changePassword": "Change password",
+  "passwordChanged": "Password changed. Other devices are logged out.",
+  "forgotLink": "Forgot password?",
+  "forgotTitle": "Reset password",
+  "forgotIntro": "Enter your phone number. We'll text you a code to set a new password.",
+  "resetCodeSent": "If this number has an account, we've sent a code by SMS.",
+  "setNewPassword": "Set new password",
+  "resetDone": "Password updated. You can now log in.",
+  "genericError": "Something went wrong. Please try again.",
+  "bookingsEmpty": "No bookings yet. Search for a trip to get started.",
+  "bookingsUpcoming": "Upcoming",
+  "bookingsPast": "Past",
+  "statusAwaitingPayment": "Awaiting payment",
+  "statusConfirmed": "Confirmed",
+  "statusCancelled": "Cancelled",
+  "statusExpired": "Expired",
+  "statusRefunded": "Refunded",
+  "statusRefundInProgress": "Refund in progress",
+  "rateTrip": "Rate this trip",
+  "cancelBooking": "Cancel booking",
+  "cancelBookingTitle": "Cancel this booking?",
+  "cancelRefundPreview": "You'll get {amount} back ({percent}% of the ticket) on the Mobile Money number you paid with.",
+  "@cancelRefundPreview": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      },
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
+  "cancelNoRefund": "It's too close to departure for a refund under the operator's policy.",
+  "keepBooking": "Keep booking",
+  "confirmCancel": "Cancel booking",
+  "bookingCancelled": "Booking cancelled.",
+  "seatLabel": "Seat",
+  "refundLabel": "Refund",
+  "ratingOverall": "Overall",
+  "ratingPunctuality": "Punctuality",
+  "ratingService": "Service",
+  "ratingVehicle": "Vehicle",
+  "ratingComment": "Comment (optional)",
+  "submitReview": "Send review",
+  "notificationsTitle": "Notifications",
+  "notificationsEmpty": "No notifications yet.",
+  "scanTickets": "Scan tickets",
+  "enterTokenTitle": "Enter ticket code",
+  "checkInAction": "Check in",
+  "checkedIn": "Passenger checked in",
+  "notValid": "Not valid",
+  "scanNext": "Scan next",
+  "cameraUnavailable": "The camera isn't available. Allow camera access in Settings, or enter the ticket code.",
+  "holdExpired": "The seat hold has expired. If you approve the payment now, we'll confirm the seat if it's still free, or refund you.",
+  "holdRemaining": "Seat held for {time}",
+  "@holdRemaining": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "ticketsOfflineTitle": "You're offline",
+  "ticketsOfflineBody": "Showing your saved tickets. Their QR codes still work at boarding.",
+  "filtersTitle": "Filters",
+  "filtersClear": "Clear",
+  "filtersApply": "Show trips",
+  "filterVehicle": "Vehicle",
+  "filterDeparture": "Departure time",
+  "filterRating": "Operator rating",
+  "filterAmenities": "On board",
+  "filterMaxPrice": "Maximum price",
+  "timeMorning": "Morning",
+  "timeAfternoon": "Afternoon",
+  "timeEvening": "Evening",
+  "vehicleBus": "Bus",
+  "vehicleMinibus": "Minibus",
+  "vehicleVan": "Van",
+  "vehicleTaxi": "Taxi",
+  "amenityAc": "Air conditioning",
+  "ticketNotFound": "Ticket not found. Pull to refresh your tickets."
 }

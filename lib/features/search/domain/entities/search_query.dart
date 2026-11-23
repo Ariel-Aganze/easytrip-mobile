@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 
+import 'search_filters.dart';
 import 'sort_mode.dart';
 
 /// The inputs of a trip search. City ids are UUIDs; [date] is the departure day.
@@ -12,7 +13,10 @@ class SearchQuery extends Equatable {
     required this.date,
     this.passengers = 1,
     this.sort = TripSortMode.recommended,
+    this.filters = const SearchFilters(),
   });
+
+  final SearchFilters filters;
 
   final String originId;
   final String originName;
@@ -27,7 +31,7 @@ class SearchQuery extends Equatable {
       '${date.month.toString().padLeft(2, '0')}-'
       '${date.day.toString().padLeft(2, '0')}';
 
-  SearchQuery copyWith({TripSortMode? sort}) {
+  SearchQuery copyWith({TripSortMode? sort, SearchFilters? filters}) {
     return SearchQuery(
       originId: originId,
       originName: originName,
@@ -36,9 +40,11 @@ class SearchQuery extends Equatable {
       date: date,
       passengers: passengers,
       sort: sort ?? this.sort,
+      filters: filters ?? this.filters,
     );
   }
 
   @override
-  List<Object?> get props => [originId, destinationId, date, passengers, sort];
+  List<Object?> get props =>
+      [originId, destinationId, date, passengers, sort, filters];
 }

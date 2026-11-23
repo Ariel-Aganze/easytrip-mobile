@@ -64,6 +64,26 @@ class TicketModel {
     );
   }
 
+  Map<String, dynamic> toJson() => {
+        'id': id,
+        'ticket_number': ticketNumber,
+        'booking_reference': bookingReference,
+        'origin': origin,
+        'destination': destination,
+        'departure_datetime': departureDatetime,
+        'operator_name': operatorName,
+        'vehicle': vehicle,
+        'passenger_name': passengerName,
+        'seat_number': seatNumber,
+        'amount': amount,
+        'currency': currency,
+        'payment_status': paymentStatus,
+        'status': status,
+        'qr_token': qrToken,
+        'issued_at': issuedAt,
+        'used_at': usedAt,
+      };
+
   Ticket toEntity() {
     return Ticket(
       id: id,

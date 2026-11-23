@@ -3,6 +3,12 @@ import 'package:get_it/get_it.dart';
 
 import 'package:easytrip/core/localization/locale_cubit.dart';
 import 'package:easytrip/core/network/api_client.dart';
+import 'package:easytrip/core/storage/ticket_cache.dart';
+import 'package:easytrip/features/account/data/account_repository.dart';
+import 'package:easytrip/features/bookings/data/bookings_repository.dart';
+import 'package:easytrip/features/notifications/data/notifications_repository.dart';
+import 'package:easytrip/features/scanner/data/scanner_repository.dart';
+import 'package:easytrip/features/bookings/presentation/cubit/bookings_cubit.dart';
 import 'package:easytrip/core/storage/token_storage.dart';
 import 'package:easytrip/features/auth/data/datasources/auth_remote_datasource.dart';
 import 'package:easytrip/features/auth/data/repositories/auth_repository_impl.dart';
@@ -60,6 +66,7 @@ Future<void> configureDependencies() async {
     ),
   );
   sl.registerLazySingleton<TokenStorage>(() => TokenStorage(sl()));
+  sl.registerLazySingleton<TicketCache>(() => TicketCache(sl()));
   sl.registerLazySingleton<ApiClient>(() => ApiClient(tokenStorage: sl()));
   sl.registerLazySingleton<LocaleCubit>(() => LocaleCubit());
 
@@ -74,7 +81,7 @@ Future<void> configureDependencies() async {
   // ---- Auth: domain (use cases) ----
   sl.registerFactory(() => LoginUseCase(sl()));
   sl.registerFactory(() => RegisterUseCase(sl()));
-  sl.registerFactory(() => LogoutUseCase(sl()));
+  sl.registerFactory(() => LogoutUseCase(sl(), sl()));
   sl.registerFactory(() => GetCurrentUser(sl()));
   sl.registerFactory(() => CheckSession(sl()));
 
@@ -88,6 +95,23 @@ Future<void> configureDependencies() async {
   );
   sl.registerFactory<LoginCubit>(() => LoginCubit(sl()));
   sl.registerFactory<RegisterCubit>(() => RegisterCubit(sl()));
+
+  // ---- Account ----
+  sl.registerLazySingleton<AccountRepository>(
+      () => AccountRepository(sl<ApiClient>().dio));
+
+  // ---- My bookings (history, cancellation, reviews) ----
+  sl.registerLazySingleton<BookingsRepository>(
+      () => BookingsRepository(sl<ApiClient>().dio));
+  sl.registerFactory<BookingsCubit>(() => BookingsCubit(sl()));
+
+  // ---- Notifications ----
+  sl.registerLazySingleton<NotificationsRepository>(
+      () => NotificationsRepository(sl<ApiClient>().dio));
+
+  // ---- Boarding scanner (agents / operators) ----
+  sl.registerLazySingleton<ScannerRepository>(
+      () => ScannerRepository(sl<ApiClient>().dio));
 
   // ---- Geo ----
   sl.registerLazySingleton<GeoRemoteDataSource>(
@@ -146,7 +170,9 @@ Future<void> configureDependencies() async {
   sl.registerLazySingleton<TicketRemoteDataSource>(
     () => TicketRemoteDataSourceImpl(sl<ApiClient>().dio),
   );
-  sl.registerLazySingleton<TicketRepository>(() => TicketRepositoryImpl(sl()));
+  sl.registerLazySingleton<TicketRepository>(
+      () => TicketRepositoryImpl(sl(), sl()));
   sl.registerFactory(() => GetMyTickets(sl()));
   sl.registerFactory<TicketsCubit>(() => TicketsCubit(sl()));
+  // GetMyTickets is kept for callers that want only the API result.
 }

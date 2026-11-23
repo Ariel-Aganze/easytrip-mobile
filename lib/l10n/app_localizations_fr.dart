@@ -416,4 +416,258 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get ticketNumberLabel => 'Référence de réservation';
+
+  @override
+  String get tabBookings => 'Réservations';
+
+  @override
+  String get accountTitle => 'Mon compte';
+
+  @override
+  String get profileTitle => 'Profil';
+
+  @override
+  String get saveAction => 'Enregistrer';
+
+  @override
+  String get profileSaved => 'Profil enregistré.';
+
+  @override
+  String get phoneVerified => 'Vérifié';
+
+  @override
+  String get phoneNotVerified => 'Non vérifié';
+
+  @override
+  String get phoneVerifyHint =>
+      'Nous vous envoyons un code à 6 chiffres par SMS pour confirmer ce numéro.';
+
+  @override
+  String get smsCodeLabel => 'Code à 6 chiffres';
+
+  @override
+  String get sendCode => 'Envoyer le code';
+
+  @override
+  String get resendCode => 'Envoyer un nouveau code';
+
+  @override
+  String get codeSent => 'Code envoyé par SMS.';
+
+  @override
+  String get verifyAction => 'Vérifier';
+
+  @override
+  String get phoneVerifiedDone => 'Votre numéro est vérifié.';
+
+  @override
+  String get currentPassword => 'Mot de passe actuel';
+
+  @override
+  String get newPassword => 'Nouveau mot de passe';
+
+  @override
+  String get changePassword => 'Changer le mot de passe';
+
+  @override
+  String get passwordChanged =>
+      'Mot de passe changé. Les autres appareils sont déconnectés.';
+
+  @override
+  String get forgotLink => 'Mot de passe oublié ?';
+
+  @override
+  String get forgotTitle => 'Réinitialiser le mot de passe';
+
+  @override
+  String get forgotIntro =>
+      'Saisissez votre numéro. Nous vous enverrons un code par SMS pour définir un nouveau mot de passe.';
+
+  @override
+  String get resetCodeSent =>
+      'Si ce numéro a un compte, nous avons envoyé un code par SMS.';
+
+  @override
+  String get setNewPassword => 'Définir le mot de passe';
+
+  @override
+  String get resetDone =>
+      'Mot de passe mis à jour. Vous pouvez vous connecter.';
+
+  @override
+  String get genericError => 'Une erreur est survenue. Veuillez réessayer.';
+
+  @override
+  String get bookingsEmpty =>
+      'Aucune réservation. Recherchez un voyage pour commencer.';
+
+  @override
+  String get bookingsUpcoming => 'À venir';
+
+  @override
+  String get bookingsPast => 'Passées';
+
+  @override
+  String get statusAwaitingPayment => 'En attente de paiement';
+
+  @override
+  String get statusConfirmed => 'Confirmée';
+
+  @override
+  String get statusCancelled => 'Annulée';
+
+  @override
+  String get statusExpired => 'Expirée';
+
+  @override
+  String get statusRefunded => 'Remboursée';
+
+  @override
+  String get statusRefundInProgress => 'Remboursement en cours';
+
+  @override
+  String get rateTrip => 'Noter ce voyage';
+
+  @override
+  String get cancelBooking => 'Annuler la réservation';
+
+  @override
+  String get cancelBookingTitle => 'Annuler cette réservation ?';
+
+  @override
+  String cancelRefundPreview(String amount, String percent) {
+    return 'Vous serez remboursé de $amount ($percent % du billet) sur le numéro Mobile Money utilisé pour payer.';
+  }
+
+  @override
+  String get cancelNoRefund =>
+      'Le départ est trop proche pour un remboursement selon la politique du transporteur.';
+
+  @override
+  String get keepBooking => 'Garder la réservation';
+
+  @override
+  String get confirmCancel => 'Annuler la réservation';
+
+  @override
+  String get bookingCancelled => 'Réservation annulée.';
+
+  @override
+  String get seatLabel => 'Siège';
+
+  @override
+  String get refundLabel => 'Remboursement';
+
+  @override
+  String get ratingOverall => 'Global';
+
+  @override
+  String get ratingPunctuality => 'Ponctualité';
+
+  @override
+  String get ratingService => 'Service';
+
+  @override
+  String get ratingVehicle => 'Véhicule';
+
+  @override
+  String get ratingComment => 'Commentaire (facultatif)';
+
+  @override
+  String get submitReview => 'Envoyer l\'avis';
+
+  @override
+  String get notificationsTitle => 'Notifications';
+
+  @override
+  String get notificationsEmpty => 'Aucune notification pour l\'instant.';
+
+  @override
+  String get scanTickets => 'Scanner les billets';
+
+  @override
+  String get enterTokenTitle => 'Saisir le code du billet';
+
+  @override
+  String get checkInAction => 'Valider';
+
+  @override
+  String get checkedIn => 'Passager embarqué';
+
+  @override
+  String get notValid => 'Non valide';
+
+  @override
+  String get scanNext => 'Scanner le suivant';
+
+  @override
+  String get cameraUnavailable =>
+      'La caméra n\'est pas disponible. Autorisez-la dans les Réglages, ou saisissez le code du billet.';
+
+  @override
+  String get holdExpired =>
+      'La réservation du siège a expiré. Si vous validez le paiement maintenant, nous confirmerons le siège s\'il est libre, sinon nous vous rembourserons.';
+
+  @override
+  String holdRemaining(String time) {
+    return 'Siège réservé pendant $time';
+  }
+
+  @override
+  String get ticketsOfflineTitle => 'Vous êtes hors ligne';
+
+  @override
+  String get ticketsOfflineBody =>
+      'Vos billets enregistrés s\'affichent. Leurs QR codes restent valables à l\'embarquement.';
+
+  @override
+  String get filtersTitle => 'Filtres';
+
+  @override
+  String get filtersClear => 'Effacer';
+
+  @override
+  String get filtersApply => 'Voir les voyages';
+
+  @override
+  String get filterVehicle => 'Véhicule';
+
+  @override
+  String get filterDeparture => 'Heure de départ';
+
+  @override
+  String get filterRating => 'Note du transporteur';
+
+  @override
+  String get filterAmenities => 'À bord';
+
+  @override
+  String get filterMaxPrice => 'Prix maximum';
+
+  @override
+  String get timeMorning => 'Matin';
+
+  @override
+  String get timeAfternoon => 'Après-midi';
+
+  @override
+  String get timeEvening => 'Soir';
+
+  @override
+  String get vehicleBus => 'Bus';
+
+  @override
+  String get vehicleMinibus => 'Minibus';
+
+  @override
+  String get vehicleVan => 'Van';
+
+  @override
+  String get vehicleTaxi => 'Taxi';
+
+  @override
+  String get amenityAc => 'Climatisation';
+
+  @override
+  String get ticketNotFound => 'Billet introuvable. Actualisez vos billets.';
 }

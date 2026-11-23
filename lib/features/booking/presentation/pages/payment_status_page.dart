@@ -1,4 +1,9 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+
+import 'package:easytrip/core/router/app_routes.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:easytrip/core/di/injector.dart';
@@ -11,29 +16,36 @@ class PaymentStatusPage extends StatelessWidget {
     required this.paymentId,
     required this.bookingReference,
     required this.msisdn,
+    this.holdExpiresAt,
   });
 
   final String paymentId;
   final String bookingReference;
   final String msisdn;
+  final DateTime? holdExpiresAt;
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider<PaymentStatusCubit>(
       create: (_) => sl<PaymentStatusCubit>(param1: paymentId)..start(),
-      child: _StatusView(bookingReference: bookingReference, msisdn: msisdn),
+      child: _StatusView(
+        bookingReference: bookingReference,
+        msisdn: msisdn,
+        holdExpiresAt: holdExpiresAt,
+      ),
     );
   }
 }
 
 class _StatusView extends StatelessWidget {
-  const _StatusView({required this.bookingReference, required this.msisdn});
+  const _StatusView({
+    required this.bookingReference,
+    required this.msisdn,
+    this.holdExpiresAt,
+  });
   final String bookingReference;
   final String msisdn;
-
-  void _goHome(BuildContext context) {
-    Navigator.of(context).popUntil((route) => route.isFirst);
-  }
+  final DateTime? holdExpiresAt;
 
   @override
   Widget build(BuildContext context) {
@@ -47,13 +59,15 @@ class _StatusView extends StatelessWidget {
               return switch (state.view) {
                 PaymentView.success => _Success(
                     reference: bookingReference,
-                    onDone: () => _goHome(context),
+                    onDone: () => context.go(AppRoutes.tickets),
                   ),
-                PaymentView.failed => _Failed(onBack: () => _goHome(context)),
+                PaymentView.failed =>
+                  _Failed(onBack: () => context.go(AppRoutes.search)),
                 PaymentView.polling => _Polling(
                     msisdn: msisdn,
                     reference: state.payment?.reference ?? '',
                     slow: state.slowNetwork,
+                    holdExpiresAt: holdExpiresAt,
                     onRefresh: () =>
                         context.read<PaymentStatusCubit>().refreshNow(),
                   ),
@@ -72,11 +86,13 @@ class _Polling extends StatelessWidget {
     required this.reference,
     required this.slow,
     required this.onRefresh,
+    this.holdExpiresAt,
   });
   final String msisdn;
   final String reference;
   final bool slow;
   final VoidCallback onRefresh;
+  final DateTime? holdExpiresAt;
 
   @override
   Widget build(BuildContext context) {
@@ -128,6 +144,10 @@ class _Polling extends StatelessWidget {
                 style: textTheme.bodySmall
                     ?.copyWith(color: scheme.onSurfaceVariant),
               ),
+            ],
+            if (holdExpiresAt != null) ...[
+              const SizedBox(height: 20),
+              HoldCountdown(expiresAt: holdExpiresAt!),
             ],
             const SizedBox(height: 24),
             OutlinedButton.icon(
@@ -241,6 +261,58 @@ class _Failed extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+/// "Seat held for 08:42" — how long the customer has to approve the Mobile
+/// Money prompt before the seat is released.
+class HoldCountdown extends StatefulWidget {
+  const HoldCountdown({super.key, required this.expiresAt, this.now});
+
+  final DateTime expiresAt;
+
+  /// Clock override for tests.
+  final DateTime Function()? now;
+
+  @override
+  State<HoldCountdown> createState() => _HoldCountdownState();
+}
+
+class _HoldCountdownState extends State<HoldCountdown> {
+  Timer? _timer;
+
+  DateTime _now() => widget.now?.call() ?? DateTime.now();
+
+  @override
+  void initState() {
+    super.initState();
+    _timer = Timer.periodic(const Duration(seconds: 1), (_) {
+      if (mounted) setState(() {});
+    });
+  }
+
+  @override
+  void dispose() {
+    _timer?.cancel();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    final scheme = Theme.of(context).colorScheme;
+    final left = widget.expiresAt.difference(_now());
+    if (left.isNegative) {
+      return Text(l10n.holdExpired,
+          textAlign: TextAlign.center, style: TextStyle(color: scheme.error));
+    }
+    final mm = left.inMinutes.toString().padLeft(2, '0');
+    final ss = (left.inSeconds % 60).toString().padLeft(2, '0');
+    return Chip(
+      avatar: Icon(Icons.timer_outlined,
+          size: 18, color: left.inMinutes < 2 ? scheme.error : scheme.primary),
+      label: Text(l10n.holdRemaining('$mm:$ss')),
     );
   }
 }

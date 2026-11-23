@@ -33,7 +33,11 @@ class AuthUser extends Equatable {
     required this.role,
     this.email,
     this.dateJoined,
+    this.phoneVerified = false,
   });
+
+  /// Confirmed by an SMS code.
+  final bool phoneVerified;
 
   final int id;
   final String phoneNumber;
@@ -44,5 +48,5 @@ class AuthUser extends Equatable {
 
   @override
   List<Object?> get props =>
-      [id, phoneNumber, fullName, role, email, dateJoined];
+      [id, phoneNumber, fullName, role, email, dateJoined, phoneVerified];
 }

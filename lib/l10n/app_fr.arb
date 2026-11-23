@@ -1,20 +1,16 @@
 {
   "@@locale": "fr",
-
   "appName": "EasyTrip",
   "tagline": "Toute la région, à un voyage près.",
-
   "actionContinue": "Continuer",
   "actionCancel": "Annuler",
   "actionRetry": "Réessayer",
   "actionClose": "Fermer",
   "loading": "Chargement…",
   "comingSoon": "Bientôt disponible",
-
   "languageName": "Français",
   "switchToFrench": "FR",
   "switchToEnglish": "EN",
-
   "loginTitle": "Bon retour",
   "loginSubtitle": "Connectez-vous pour continuer votre voyage.",
   "phoneLabel": "Numéro de téléphone",
@@ -23,7 +19,6 @@
   "loginButton": "Se connecter",
   "noAccountQuestion": "Vous n'avez pas de compte ?",
   "signUpLink": "S'inscrire",
-
   "registerTitle": "Créez votre compte",
   "registerSubtitle": "Réservez des trajets dans toute la région en quelques minutes.",
   "fullNameLabel": "Nom complet",
@@ -34,22 +29,18 @@
   "registerButton": "Créer le compte",
   "haveAccountQuestion": "Vous avez déjà un compte ?",
   "loginLink": "Se connecter",
-
   "countryCodeLabel": "Pays",
   "countryDrc": "RD Congo",
   "countryRwanda": "Rwanda",
   "countryUganda": "Ouganda",
   "countryKenya": "Kenya",
-
   "validationRequired": "Ce champ est obligatoire.",
   "validationInvalidPhone": "Saisissez un numéro de téléphone valide.",
   "validationInvalidEmail": "Saisissez une adresse e-mail valide.",
   "validationPasswordTooShort": "Le mot de passe doit contenir au moins 8 caractères.",
-
   "errorGeneric": "Une erreur s'est produite. Veuillez réessayer.",
   "errorNetwork": "Impossible de joindre le serveur. Vérifiez votre connexion et réessayez.",
   "errorSessionExpired": "Votre session a expiré. Veuillez vous reconnecter.",
-
   "homeGreeting": "Bonjour, {name}",
   "homeWelcome": "Vos trajets, billets et paiements — au même endroit.",
   "homeBuildNote": "Vous êtes connecté. L'expérience voyageur — recherche, sièges, Mobile Money et vos billets QR — arrive bientôt.",
@@ -57,13 +48,11 @@
   "tabTickets": "Mes billets",
   "tabProfile": "Profil",
   "logout": "Se déconnecter",
-
   "roleCustomer": "Voyageur",
   "roleOperator": "Opérateur",
   "roleAgent": "Agent",
   "roleAdmin": "Administrateur",
-    "roleUnknown": "Membre",
-
+  "roleUnknown": "Membre",
   "searchTitle": "Trouver un trajet",
   "searchFrom": "Départ",
   "searchTo": "Arrivée",
@@ -74,32 +63,33 @@
   "searchButton": "Rechercher",
   "searchSwapTooltip": "Inverser départ et arrivée",
   "searchSameCityError": "Le départ et l'arrivée doivent être différents.",
-
   "sortLabel": "Trier par",
   "sortRecommended": "Recommandé",
   "sortCheapest": "Moins cher",
   "sortFastest": "Plus rapide",
   "sortTopRated": "Mieux notés",
-
   "resultsEmptyTitle": "Aucun trajet trouvé",
   "resultsEmptyBody": "Aucun trajet sur cet itinéraire à la date choisie. Essayez une autre date.",
   "resultsError": "Impossible de charger les trajets. Veuillez réessayer.",
-
   "tripSelect": "Choisir",
   "tripNew": "Nouveau",
   "tripSeatsLeft": "{count, plural, =0{Complet} =1{1 place restante} other{{count} places restantes}}",
   "@tripSeatsLeft": {
     "placeholders": {
-      "count": { "type": "int" }
+      "count": {
+        "type": "int"
+      }
     }
   },
   "tripsFound": "{count, plural, =0{Aucun trajet} =1{1 trajet} other{{count} trajets}}",
   "@tripsFound": {
     "placeholders": {
-      "count": { "type": "int" }
+      "count": {
+        "type": "int"
+      }
     }
   },
-    "amenitiesTitle": "Équipements",
+  "amenitiesTitle": "Équipements",
   "tripDepartureLabel": "Départ",
   "tripArrivalLabel": "Arrivée",
   "totalLabel": "Total",
@@ -107,8 +97,12 @@
   "seatSelectedProgress": "{selected} sur {total} sélectionné(s)",
   "@seatSelectedProgress": {
     "placeholders": {
-      "selected": { "type": "int" },
-      "total": { "type": "int" }
+      "selected": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
     }
   },
   "seatAutoTitle": "Sièges attribués automatiquement",
@@ -122,7 +116,9 @@
   "passengerLabel": "Passager {n}",
   "@passengerLabel": {
     "placeholders": {
-      "n": { "type": "int" }
+      "n": {
+        "type": "int"
+      }
     }
   },
   "contactPhoneLabel": "Téléphone de contact (facultatif)",
@@ -132,20 +128,26 @@
   "payNow": "Payer {amount}",
   "@payNow": {
     "placeholders": {
-      "amount": { "type": "String" }
+      "amount": {
+        "type": "String"
+      }
     }
   },
   "seatChipLabel": "Siège {seat}",
   "@seatChipLabel": {
     "placeholders": {
-      "seat": { "type": "String" }
+      "seat": {
+        "type": "String"
+      }
     }
   },
   "payWaitingTitle": "Confirmez sur votre téléphone",
   "payWaitingBody": "Nous avons envoyé une demande de paiement au {msisdn}. Approuvez-la sur votre téléphone pour confirmer votre réservation.",
   "@payWaitingBody": {
     "placeholders": {
-      "msisdn": { "type": "String" }
+      "msisdn": {
+        "type": "String"
+      }
     }
   },
   "payReferenceLabel": "Référence de paiement",
@@ -155,7 +157,9 @@
   "paySuccessBody": "Votre réservation {reference} est confirmée. Votre billet sera dans Mes billets.",
   "@paySuccessBody": {
     "placeholders": {
-      "reference": { "type": "String" }
+      "reference": {
+        "type": "String"
+      }
     }
   },
   "payFailedTitle": "Échec du paiement",
@@ -175,5 +179,85 @@
   "ticketPassengerLabel": "Passager",
   "ticketSeatLabel": "Siège",
   "ticketVehicleLabel": "Véhicule",
-  "ticketNumberLabel": "Référence de réservation"
+  "ticketNumberLabel": "Référence de réservation",
+  "tabBookings": "Réservations",
+  "accountTitle": "Mon compte",
+  "profileTitle": "Profil",
+  "saveAction": "Enregistrer",
+  "profileSaved": "Profil enregistré.",
+  "phoneVerified": "Vérifié",
+  "phoneNotVerified": "Non vérifié",
+  "phoneVerifyHint": "Nous vous envoyons un code à 6 chiffres par SMS pour confirmer ce numéro.",
+  "smsCodeLabel": "Code à 6 chiffres",
+  "sendCode": "Envoyer le code",
+  "resendCode": "Envoyer un nouveau code",
+  "codeSent": "Code envoyé par SMS.",
+  "verifyAction": "Vérifier",
+  "phoneVerifiedDone": "Votre numéro est vérifié.",
+  "currentPassword": "Mot de passe actuel",
+  "newPassword": "Nouveau mot de passe",
+  "changePassword": "Changer le mot de passe",
+  "passwordChanged": "Mot de passe changé. Les autres appareils sont déconnectés.",
+  "forgotLink": "Mot de passe oublié ?",
+  "forgotTitle": "Réinitialiser le mot de passe",
+  "forgotIntro": "Saisissez votre numéro. Nous vous enverrons un code par SMS pour définir un nouveau mot de passe.",
+  "resetCodeSent": "Si ce numéro a un compte, nous avons envoyé un code par SMS.",
+  "setNewPassword": "Définir le mot de passe",
+  "resetDone": "Mot de passe mis à jour. Vous pouvez vous connecter.",
+  "genericError": "Une erreur est survenue. Veuillez réessayer.",
+  "bookingsEmpty": "Aucune réservation. Recherchez un voyage pour commencer.",
+  "bookingsUpcoming": "À venir",
+  "bookingsPast": "Passées",
+  "statusAwaitingPayment": "En attente de paiement",
+  "statusConfirmed": "Confirmée",
+  "statusCancelled": "Annulée",
+  "statusExpired": "Expirée",
+  "statusRefunded": "Remboursée",
+  "statusRefundInProgress": "Remboursement en cours",
+  "rateTrip": "Noter ce voyage",
+  "cancelBooking": "Annuler la réservation",
+  "cancelBookingTitle": "Annuler cette réservation ?",
+  "cancelRefundPreview": "Vous serez remboursé de {amount} ({percent} % du billet) sur le numéro Mobile Money utilisé pour payer.",
+  "cancelNoRefund": "Le départ est trop proche pour un remboursement selon la politique du transporteur.",
+  "keepBooking": "Garder la réservation",
+  "confirmCancel": "Annuler la réservation",
+  "bookingCancelled": "Réservation annulée.",
+  "seatLabel": "Siège",
+  "refundLabel": "Remboursement",
+  "ratingOverall": "Global",
+  "ratingPunctuality": "Ponctualité",
+  "ratingService": "Service",
+  "ratingVehicle": "Véhicule",
+  "ratingComment": "Commentaire (facultatif)",
+  "submitReview": "Envoyer l'avis",
+  "notificationsTitle": "Notifications",
+  "notificationsEmpty": "Aucune notification pour l'instant.",
+  "scanTickets": "Scanner les billets",
+  "enterTokenTitle": "Saisir le code du billet",
+  "checkInAction": "Valider",
+  "checkedIn": "Passager embarqué",
+  "notValid": "Non valide",
+  "scanNext": "Scanner le suivant",
+  "cameraUnavailable": "La caméra n'est pas disponible. Autorisez-la dans les Réglages, ou saisissez le code du billet.",
+  "holdExpired": "La réservation du siège a expiré. Si vous validez le paiement maintenant, nous confirmerons le siège s'il est libre, sinon nous vous rembourserons.",
+  "holdRemaining": "Siège réservé pendant {time}",
+  "ticketsOfflineTitle": "Vous êtes hors ligne",
+  "ticketsOfflineBody": "Vos billets enregistrés s'affichent. Leurs QR codes restent valables à l'embarquement.",
+  "filtersTitle": "Filtres",
+  "filtersClear": "Effacer",
+  "filtersApply": "Voir les voyages",
+  "filterVehicle": "Véhicule",
+  "filterDeparture": "Heure de départ",
+  "filterRating": "Note du transporteur",
+  "filterAmenities": "À bord",
+  "filterMaxPrice": "Prix maximum",
+  "timeMorning": "Matin",
+  "timeAfternoon": "Après-midi",
+  "timeEvening": "Soir",
+  "vehicleBus": "Bus",
+  "vehicleMinibus": "Minibus",
+  "vehicleVan": "Van",
+  "vehicleTaxi": "Taxi",
+  "amenityAc": "Climatisation",
+  "ticketNotFound": "Billet introuvable. Actualisez vos billets."
 }

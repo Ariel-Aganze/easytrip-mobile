@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+
+import 'package:easytrip/core/router/app_routes.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:easytrip/core/di/injector.dart';
@@ -7,7 +10,6 @@ import 'package:easytrip/l10n/app_localizations.dart';
 import 'package:easytrip/features/geo/domain/entities/city.dart';
 import 'package:easytrip/features/search/domain/entities/search_query.dart';
 import 'package:easytrip/features/search/presentation/cubit/search_form_cubit.dart';
-import 'package:easytrip/features/search/presentation/pages/search_results_page.dart';
 import 'package:easytrip/features/search/presentation/widgets/city_picker_field.dart';
 
 /// The "Search" tab content. Loads cities, collects the trip query, and pushes
@@ -73,9 +75,7 @@ class _SearchViewState extends State<_SearchView> {
       date: _date,
       passengers: _passengers,
     );
-    Navigator.of(context).push(
-      MaterialPageRoute<void>(builder: (_) => SearchResultsPage(query: query)),
-    );
+    context.push(AppRoutes.searchResults, extra: query);
   }
 
   @override

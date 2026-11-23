@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:easytrip/features/ticket/domain/repositories/ticket_repository.dart';
+import 'package:easytrip/core/utils/result.dart';
+import 'package:easytrip/core/di/injector.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
 import 'package:easytrip/core/utils/money_formatter.dart';
@@ -189,6 +192,49 @@ class _StatusNote extends StatelessWidget {
           Flexible(child: Text(text, style: TextStyle(color: fg))),
         ],
       ),
+    );
+  }
+}
+
+/// `/tickets/:id`: resolves the ticket from the offline copy first (works with
+/// no signal), then from the API, then shows the normal ticket page.
+class TicketDetailRoute extends StatelessWidget {
+  const TicketDetailRoute({super.key, required this.ticketId});
+
+  final String ticketId;
+
+  Future<Ticket?> _find() async {
+    final repo = sl<TicketRepository>();
+    bool match(Ticket t) => t.id == ticketId;
+    final cached = (await repo.getCachedTickets()).where(match);
+    if (cached.isNotEmpty) return cached.first;
+    final result = await repo.getMyTickets();
+    if (result case Ok(value: final tickets)) {
+      final fresh = tickets.where(match);
+      if (fresh.isNotEmpty) return fresh.first;
+    }
+    return null;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder<Ticket?>(
+      future: _find(),
+      builder: (context, snap) {
+        if (snap.connectionState != ConnectionState.done) {
+          return const Scaffold(
+              body: Center(child: CircularProgressIndicator()));
+        }
+        final ticket = snap.data;
+        if (ticket == null) {
+          return Scaffold(
+            appBar: AppBar(),
+            body: Center(
+                child: Text(AppLocalizations.of(context).ticketNotFound)),
+          );
+        }
+        return TicketDetailPage(ticket: ticket);
+      },
     );
   }
 }

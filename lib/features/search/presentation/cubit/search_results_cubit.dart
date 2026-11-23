@@ -3,6 +3,7 @@ import 'package:equatable/equatable.dart';
 
 import 'package:easytrip/core/utils/load_status.dart';
 import 'package:easytrip/core/utils/result.dart';
+import 'package:easytrip/features/search/domain/entities/search_filters.dart';
 import 'package:easytrip/features/search/domain/entities/search_query.dart';
 import 'package:easytrip/features/search/domain/entities/sort_mode.dart';
 import 'package:easytrip/features/search/domain/entities/trip_summary.dart';
@@ -27,6 +28,12 @@ class SearchResultsCubit extends Cubit<SearchResultsState> {
         emit(state.copyWith(
             status: LoadStatus.error, errorMessage: failure.message));
     }
+  }
+
+  Future<void> applyFilters(SearchFilters filters) async {
+    final query = state.query;
+    if (query == null || filters == query.filters) return;
+    await run(query.copyWith(filters: filters));
   }
 
   Future<void> changeSort(TripSortMode sort) async {

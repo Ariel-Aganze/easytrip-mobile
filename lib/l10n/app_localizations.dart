@@ -821,6 +821,486 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Booking reference'**
   String get ticketNumberLabel;
+
+  /// No description provided for @tabBookings.
+  ///
+  /// In en, this message translates to:
+  /// **'Bookings'**
+  String get tabBookings;
+
+  /// No description provided for @accountTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'My account'**
+  String get accountTitle;
+
+  /// No description provided for @profileTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile'**
+  String get profileTitle;
+
+  /// No description provided for @saveAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get saveAction;
+
+  /// No description provided for @profileSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile saved.'**
+  String get profileSaved;
+
+  /// No description provided for @phoneVerified.
+  ///
+  /// In en, this message translates to:
+  /// **'Verified'**
+  String get phoneVerified;
+
+  /// No description provided for @phoneNotVerified.
+  ///
+  /// In en, this message translates to:
+  /// **'Not verified'**
+  String get phoneNotVerified;
+
+  /// No description provided for @phoneVerifyHint.
+  ///
+  /// In en, this message translates to:
+  /// **'We\'ll text you a 6-digit code to confirm this number is yours.'**
+  String get phoneVerifyHint;
+
+  /// No description provided for @smsCodeLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'6-digit code'**
+  String get smsCodeLabel;
+
+  /// No description provided for @sendCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Send code'**
+  String get sendCode;
+
+  /// No description provided for @resendCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Send a new code'**
+  String get resendCode;
+
+  /// No description provided for @codeSent.
+  ///
+  /// In en, this message translates to:
+  /// **'Code sent by SMS.'**
+  String get codeSent;
+
+  /// No description provided for @verifyAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Verify'**
+  String get verifyAction;
+
+  /// No description provided for @phoneVerifiedDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Your phone number is verified.'**
+  String get phoneVerifiedDone;
+
+  /// No description provided for @currentPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Current password'**
+  String get currentPassword;
+
+  /// No description provided for @newPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'New password'**
+  String get newPassword;
+
+  /// No description provided for @changePassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Change password'**
+  String get changePassword;
+
+  /// No description provided for @passwordChanged.
+  ///
+  /// In en, this message translates to:
+  /// **'Password changed. Other devices are logged out.'**
+  String get passwordChanged;
+
+  /// No description provided for @forgotLink.
+  ///
+  /// In en, this message translates to:
+  /// **'Forgot password?'**
+  String get forgotLink;
+
+  /// No description provided for @forgotTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset password'**
+  String get forgotTitle;
+
+  /// No description provided for @forgotIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your phone number. We\'ll text you a code to set a new password.'**
+  String get forgotIntro;
+
+  /// No description provided for @resetCodeSent.
+  ///
+  /// In en, this message translates to:
+  /// **'If this number has an account, we\'ve sent a code by SMS.'**
+  String get resetCodeSent;
+
+  /// No description provided for @setNewPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Set new password'**
+  String get setNewPassword;
+
+  /// No description provided for @resetDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Password updated. You can now log in.'**
+  String get resetDone;
+
+  /// No description provided for @genericError.
+  ///
+  /// In en, this message translates to:
+  /// **'Something went wrong. Please try again.'**
+  String get genericError;
+
+  /// No description provided for @bookingsEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No bookings yet. Search for a trip to get started.'**
+  String get bookingsEmpty;
+
+  /// No description provided for @bookingsUpcoming.
+  ///
+  /// In en, this message translates to:
+  /// **'Upcoming'**
+  String get bookingsUpcoming;
+
+  /// No description provided for @bookingsPast.
+  ///
+  /// In en, this message translates to:
+  /// **'Past'**
+  String get bookingsPast;
+
+  /// No description provided for @statusAwaitingPayment.
+  ///
+  /// In en, this message translates to:
+  /// **'Awaiting payment'**
+  String get statusAwaitingPayment;
+
+  /// No description provided for @statusConfirmed.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirmed'**
+  String get statusConfirmed;
+
+  /// No description provided for @statusCancelled.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancelled'**
+  String get statusCancelled;
+
+  /// No description provided for @statusExpired.
+  ///
+  /// In en, this message translates to:
+  /// **'Expired'**
+  String get statusExpired;
+
+  /// No description provided for @statusRefunded.
+  ///
+  /// In en, this message translates to:
+  /// **'Refunded'**
+  String get statusRefunded;
+
+  /// No description provided for @statusRefundInProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'Refund in progress'**
+  String get statusRefundInProgress;
+
+  /// No description provided for @rateTrip.
+  ///
+  /// In en, this message translates to:
+  /// **'Rate this trip'**
+  String get rateTrip;
+
+  /// No description provided for @cancelBooking.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel booking'**
+  String get cancelBooking;
+
+  /// No description provided for @cancelBookingTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel this booking?'**
+  String get cancelBookingTitle;
+
+  /// No description provided for @cancelRefundPreview.
+  ///
+  /// In en, this message translates to:
+  /// **'You\'ll get {amount} back ({percent}% of the ticket) on the Mobile Money number you paid with.'**
+  String cancelRefundPreview(String amount, String percent);
+
+  /// No description provided for @cancelNoRefund.
+  ///
+  /// In en, this message translates to:
+  /// **'It\'s too close to departure for a refund under the operator\'s policy.'**
+  String get cancelNoRefund;
+
+  /// No description provided for @keepBooking.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep booking'**
+  String get keepBooking;
+
+  /// No description provided for @confirmCancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel booking'**
+  String get confirmCancel;
+
+  /// No description provided for @bookingCancelled.
+  ///
+  /// In en, this message translates to:
+  /// **'Booking cancelled.'**
+  String get bookingCancelled;
+
+  /// No description provided for @seatLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Seat'**
+  String get seatLabel;
+
+  /// No description provided for @refundLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Refund'**
+  String get refundLabel;
+
+  /// No description provided for @ratingOverall.
+  ///
+  /// In en, this message translates to:
+  /// **'Overall'**
+  String get ratingOverall;
+
+  /// No description provided for @ratingPunctuality.
+  ///
+  /// In en, this message translates to:
+  /// **'Punctuality'**
+  String get ratingPunctuality;
+
+  /// No description provided for @ratingService.
+  ///
+  /// In en, this message translates to:
+  /// **'Service'**
+  String get ratingService;
+
+  /// No description provided for @ratingVehicle.
+  ///
+  /// In en, this message translates to:
+  /// **'Vehicle'**
+  String get ratingVehicle;
+
+  /// No description provided for @ratingComment.
+  ///
+  /// In en, this message translates to:
+  /// **'Comment (optional)'**
+  String get ratingComment;
+
+  /// No description provided for @submitReview.
+  ///
+  /// In en, this message translates to:
+  /// **'Send review'**
+  String get submitReview;
+
+  /// No description provided for @notificationsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications'**
+  String get notificationsTitle;
+
+  /// No description provided for @notificationsEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No notifications yet.'**
+  String get notificationsEmpty;
+
+  /// No description provided for @scanTickets.
+  ///
+  /// In en, this message translates to:
+  /// **'Scan tickets'**
+  String get scanTickets;
+
+  /// No description provided for @enterTokenTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter ticket code'**
+  String get enterTokenTitle;
+
+  /// No description provided for @checkInAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Check in'**
+  String get checkInAction;
+
+  /// No description provided for @checkedIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Passenger checked in'**
+  String get checkedIn;
+
+  /// No description provided for @notValid.
+  ///
+  /// In en, this message translates to:
+  /// **'Not valid'**
+  String get notValid;
+
+  /// No description provided for @scanNext.
+  ///
+  /// In en, this message translates to:
+  /// **'Scan next'**
+  String get scanNext;
+
+  /// No description provided for @cameraUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'The camera isn\'t available. Allow camera access in Settings, or enter the ticket code.'**
+  String get cameraUnavailable;
+
+  /// No description provided for @holdExpired.
+  ///
+  /// In en, this message translates to:
+  /// **'The seat hold has expired. If you approve the payment now, we\'ll confirm the seat if it\'s still free, or refund you.'**
+  String get holdExpired;
+
+  /// No description provided for @holdRemaining.
+  ///
+  /// In en, this message translates to:
+  /// **'Seat held for {time}'**
+  String holdRemaining(String time);
+
+  /// No description provided for @ticketsOfflineTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'You\'re offline'**
+  String get ticketsOfflineTitle;
+
+  /// No description provided for @ticketsOfflineBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Showing your saved tickets. Their QR codes still work at boarding.'**
+  String get ticketsOfflineBody;
+
+  /// No description provided for @filtersTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Filters'**
+  String get filtersTitle;
+
+  /// No description provided for @filtersClear.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear'**
+  String get filtersClear;
+
+  /// No description provided for @filtersApply.
+  ///
+  /// In en, this message translates to:
+  /// **'Show trips'**
+  String get filtersApply;
+
+  /// No description provided for @filterVehicle.
+  ///
+  /// In en, this message translates to:
+  /// **'Vehicle'**
+  String get filterVehicle;
+
+  /// No description provided for @filterDeparture.
+  ///
+  /// In en, this message translates to:
+  /// **'Departure time'**
+  String get filterDeparture;
+
+  /// No description provided for @filterRating.
+  ///
+  /// In en, this message translates to:
+  /// **'Operator rating'**
+  String get filterRating;
+
+  /// No description provided for @filterAmenities.
+  ///
+  /// In en, this message translates to:
+  /// **'On board'**
+  String get filterAmenities;
+
+  /// No description provided for @filterMaxPrice.
+  ///
+  /// In en, this message translates to:
+  /// **'Maximum price'**
+  String get filterMaxPrice;
+
+  /// No description provided for @timeMorning.
+  ///
+  /// In en, this message translates to:
+  /// **'Morning'**
+  String get timeMorning;
+
+  /// No description provided for @timeAfternoon.
+  ///
+  /// In en, this message translates to:
+  /// **'Afternoon'**
+  String get timeAfternoon;
+
+  /// No description provided for @timeEvening.
+  ///
+  /// In en, this message translates to:
+  /// **'Evening'**
+  String get timeEvening;
+
+  /// No description provided for @vehicleBus.
+  ///
+  /// In en, this message translates to:
+  /// **'Bus'**
+  String get vehicleBus;
+
+  /// No description provided for @vehicleMinibus.
+  ///
+  /// In en, this message translates to:
+  /// **'Minibus'**
+  String get vehicleMinibus;
+
+  /// No description provided for @vehicleVan.
+  ///
+  /// In en, this message translates to:
+  /// **'Van'**
+  String get vehicleVan;
+
+  /// No description provided for @vehicleTaxi.
+  ///
+  /// In en, this message translates to:
+  /// **'Taxi'**
+  String get vehicleTaxi;
+
+  /// No description provided for @amenityAc.
+  ///
+  /// In en, this message translates to:
+  /// **'Air conditioning'**
+  String get amenityAc;
+
+  /// No description provided for @ticketNotFound.
+  ///
+  /// In en, this message translates to:
+  /// **'Ticket not found. Pull to refresh your tickets.'**
+  String get ticketNotFound;
 }
 
 class _AppLocalizationsDelegate

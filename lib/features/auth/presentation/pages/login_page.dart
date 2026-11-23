@@ -138,7 +138,16 @@ class _LoginViewState extends State<_LoginView> {
                               ? l10n.validationRequired
                               : null,
                         ),
-                        const SizedBox(height: 24),
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: TextButton(
+                            onPressed: state.isSubmitting
+                                ? null
+                                : () => context.push(AppRoutes.forgotPassword),
+                            child: Text(l10n.forgotLink),
+                          ),
+                        ),
+                        const SizedBox(height: 8),
                         FilledButton(
                           onPressed: state.isSubmitting ? null : _submit,
                           child: state.isSubmitting

@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+
+import 'package:easytrip/core/router/app_routes.dart';
+import 'package:easytrip/core/router/route_args.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:easytrip/core/di/injector.dart';
@@ -8,26 +12,13 @@ import 'package:easytrip/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:easytrip/features/booking/domain/entities/passenger.dart';
 import 'package:easytrip/features/booking/domain/entities/payment_network.dart';
 import 'package:easytrip/features/booking/presentation/cubit/checkout_cubit.dart';
-import 'package:easytrip/features/booking/presentation/pages/payment_status_page.dart';
 import 'package:easytrip/shared/widgets/error_banner.dart';
 
 class CheckoutPage extends StatelessWidget {
-  const CheckoutPage({
-    super.key,
-    required this.tripId,
-    required this.passengerCount,
-    required this.selectedSeats,
-    required this.unitPrice,
-    required this.currency,
-    required this.routeLabel,
-  });
+  const CheckoutPage({super.key, required this.tripId, required this.args});
 
   final String tripId;
-  final int passengerCount;
-  final List<String> selectedSeats;
-  final num unitPrice;
-  final String currency;
-  final String routeLabel;
+  final CheckoutArgs args;
 
   @override
   Widget build(BuildContext context) {
@@ -37,11 +28,12 @@ class CheckoutPage extends StatelessWidget {
     return BlocProvider<CheckoutCubit>(
       create: (_) => sl<CheckoutCubit>(param1: tripId),
       child: _CheckoutView(
-        passengerCount: passengerCount,
-        selectedSeats: selectedSeats,
-        unitPrice: unitPrice,
-        currency: currency,
-        routeLabel: routeLabel,
+        passengerCount: args.passengerCount,
+        selectedSeats: args.selectedSeats,
+        unitPrice: args.unitPrice,
+        currency: args.currency,
+        routeLabel: args.routeLabel,
+        paymentOptions: args.paymentOptions,
         initialName: user?.fullName ?? '',
         initialPhone: user?.phoneNumber ?? '',
       ),
@@ -56,9 +48,12 @@ class _CheckoutView extends StatefulWidget {
     required this.unitPrice,
     required this.currency,
     required this.routeLabel,
+    required this.paymentOptions,
     required this.initialName,
     required this.initialPhone,
   });
+
+  final List<PaymentOption> paymentOptions;
 
   final int passengerCount;
   final List<String> selectedSeats;
@@ -77,7 +72,8 @@ class _CheckoutViewState extends State<_CheckoutView> {
   late final List<TextEditingController> _names;
   late final TextEditingController _contact;
   late final TextEditingController _msisdn;
-  PaymentNetwork _network = PaymentNetwork.mtnMomo;
+  late List<PaymentNetwork> _networks;
+  late PaymentNetwork _network;
 
   @override
   void initState() {
@@ -88,6 +84,8 @@ class _CheckoutViewState extends State<_CheckoutView> {
     );
     _contact = TextEditingController(text: widget.initialPhone);
     _msisdn = TextEditingController(text: widget.initialPhone);
+    _networks = allowedNetworks(widget.paymentOptions);
+    _network = defaultNetwork(widget.paymentOptions, widget.initialPhone);
   }
 
   @override
@@ -137,13 +135,12 @@ class _CheckoutViewState extends State<_CheckoutView> {
             if (state.status == CheckoutStatus.success &&
                 state.payment != null &&
                 state.booking != null) {
-              Navigator.of(context).pushReplacement(
-                MaterialPageRoute<void>(
-                  builder: (_) => PaymentStatusPage(
-                    paymentId: state.payment!.id,
-                    bookingReference: state.booking!.reference,
-                    msisdn: _msisdn.text.trim(),
-                  ),
+              context.pushReplacement(
+                AppRoutes.paymentPath(state.payment!.id),
+                extra: PaymentArgs(
+                  bookingReference: state.booking!.reference,
+                  msisdn: _msisdn.text.trim(),
+                  holdExpiresAt: state.booking!.holdExpiresAt,
                 ),
               );
             }
@@ -273,7 +270,7 @@ class _CheckoutViewState extends State<_CheckoutView> {
                                   }
                                 },
                           items: [
-                            for (final n in PaymentNetwork.values)
+                            for (final n in _networks)
                               DropdownMenuItem(value: n, child: Text(n.label)),
                           ],
                         ),
@@ -331,4 +328,42 @@ class _CheckoutViewState extends State<_CheckoutView> {
       ),
     );
   }
+}
+
+/// Networks the customer can pay with for this trip (all when not configured).
+List<PaymentNetwork> allowedNetworks(List<PaymentOption> options) {
+  final codes = {for (final o in options) ...o.networks};
+  if (codes.isEmpty) return PaymentNetwork.values;
+  return PaymentNetwork.values
+      .where((n) => codes.contains(n.apiValue))
+      .toList();
+}
+
+/// Pre-select a network the backend will accept: one offered in the country
+/// matching the customer's phone prefix, else the first one offered.
+PaymentNetwork defaultNetwork(List<PaymentOption> options, String phone) {
+  final allowed = allowedNetworks(options);
+  // Follow the country's own order (the backend lists the main network first).
+  PaymentNetwork? byCode(String code) {
+    for (final n in allowed) {
+      if (n.apiValue == code) return n;
+    }
+    return null;
+  }
+
+  for (final o in options) {
+    if (o.callingCode.isNotEmpty && phone.startsWith(o.callingCode)) {
+      for (final code in o.networks) {
+        final n = byCode(code);
+        if (n != null) return n;
+      }
+    }
+  }
+  for (final o in options) {
+    for (final code in o.networks) {
+      final n = byCode(code);
+      if (n != null) return n;
+    }
+  }
+  return allowed.first;
 }

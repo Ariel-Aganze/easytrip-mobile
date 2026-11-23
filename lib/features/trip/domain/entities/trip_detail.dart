@@ -1,5 +1,7 @@
 import 'package:equatable/equatable.dart';
 
+import 'package:easytrip/core/router/route_args.dart';
+
 import 'seat.dart';
 import 'seat_selection_mode.dart';
 
@@ -21,7 +23,11 @@ class TripDetail extends Equatable {
     required this.seats,
     this.arrival,
     this.durationMinutes,
+    this.paymentOptions = const [],
   });
+
+  /// Mobile Money networks per country for this trip (empty = any network).
+  final List<PaymentOption> paymentOptions;
 
   final String id;
   final String operatorName;

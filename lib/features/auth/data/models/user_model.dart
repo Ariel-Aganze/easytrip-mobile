@@ -1,7 +1,7 @@
 import 'package:easytrip/features/auth/domain/entities/auth_user.dart';
 
 /// Wire model for the backend's UserSerializer:
-/// {id, phone_number, email, full_name, role, date_joined}
+/// {id, phone_number, email, full_name, role, phone_verified, date_joined}
 class UserModel {
   const UserModel({
     required this.id,
@@ -10,8 +10,10 @@ class UserModel {
     required this.role,
     this.email,
     this.dateJoined,
+    this.phoneVerified = false,
   });
 
+  final bool phoneVerified;
   final int id;
   final String phoneNumber;
   final String fullName;
@@ -27,6 +29,7 @@ class UserModel {
       role: json['role'] as String? ?? 'CUSTOMER',
       email: json['email'] as String?,
       dateJoined: json['date_joined'] as String?,
+      phoneVerified: json['phone_verified'] as bool? ?? false,
     );
   }
 
@@ -38,6 +41,7 @@ class UserModel {
       role: UserRole.fromApi(role),
       email: email,
       dateJoined: dateJoined != null ? DateTime.tryParse(dateJoined!) : null,
+      phoneVerified: phoneVerified,
     );
   }
 }

@@ -1,3 +1,4 @@
+import 'package:easytrip/core/router/route_args.dart';
 import 'package:easytrip/core/utils/money_formatter.dart';
 import 'package:easytrip/features/trip/domain/entities/seat_selection_mode.dart';
 import 'package:easytrip/features/trip/domain/entities/trip_detail.dart';
@@ -22,8 +23,10 @@ class TripDetailModel {
     required this.seats,
     this.arrivalDatetime,
     this.durationMinutes,
+    this.paymentOptions = const [],
   });
 
+  final List<PaymentOption> paymentOptions;
   final String id;
   final String operatorName;
   final String origin;
@@ -68,6 +71,9 @@ class TripDetailModel {
       amenities: amenities,
       seatSelectionMode: json['seat_selection_mode'] as String? ?? 'AUTO',
       seats: seats,
+      paymentOptions: (json['payment_options'] as List? ?? const [])
+          .map((e) => PaymentOption.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
   }
 
@@ -91,6 +97,7 @@ class TripDetailModel {
       amenities: amenities,
       seatSelectionMode: SeatSelectionMode.fromApi(seatSelectionMode),
       seats: seats.map((s) => s.toEntity()).toList(),
+      paymentOptions: paymentOptions,
     );
   }
 }

@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+
+import 'package:easytrip/core/router/app_routes.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:easytrip/core/di/injector.dart';
 import 'package:easytrip/core/utils/load_status.dart';
 import 'package:easytrip/l10n/app_localizations.dart';
+import 'package:easytrip/features/search/domain/entities/search_filters.dart';
 import 'package:easytrip/features/search/domain/entities/search_query.dart';
+import 'package:easytrip/features/search/presentation/widgets/filter_sheet.dart';
 import 'package:easytrip/features/search/domain/entities/sort_mode.dart';
 import 'package:easytrip/features/search/presentation/cubit/search_results_cubit.dart';
 import 'package:easytrip/features/search/presentation/widgets/trip_card.dart';
-import 'package:easytrip/features/trip/presentation/pages/trip_detail_page.dart';
 
 class SearchResultsPage extends StatelessWidget {
   const SearchResultsPage({
@@ -53,6 +57,33 @@ class _ResultsView extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          BlocBuilder<SearchResultsCubit, SearchResultsState>(
+            builder: (context, state) {
+              final filters = state.query?.filters ?? query.filters;
+              return IconButton(
+                tooltip: l10n.filtersTitle,
+                icon: Badge(
+                  isLabelVisible: !filters.isEmpty,
+                  label: Text('${filters.count}'),
+                  child: const Icon(Icons.tune),
+                ),
+                onPressed: () async {
+                  final cubit = context.read<SearchResultsCubit>();
+                  final currency =
+                      state.trips.isNotEmpty ? state.trips.first.currency : '';
+                  final next = await showModalBottomSheet<SearchFilters>(
+                    context: context,
+                    isScrollControlled: true,
+                    builder: (_) =>
+                        FilterSheet(initial: filters, currency: currency),
+                  );
+                  if (next != null) await cubit.applyFilters(next);
+                },
+              );
+            },
+          ),
+        ],
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -153,14 +184,8 @@ class _ResultsView extends StatelessWidget {
               TripCard(
                 trip: trip,
                 onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute<void>(
-                      builder: (_) => TripDetailPage(
-                        tripId: trip.id,
-                        passengers: query.passengers,
-                      ),
-                    ),
-                  );
+                  context.push(AppRoutes.tripPath(trip.id,
+                      passengers: query.passengers));
                 },
               ),
           ],

@@ -27,6 +27,7 @@ class SearchRemoteDataSourceImpl implements SearchRemoteDataSource {
           'date': query.dateParam,
           'passengers': query.passengers,
           'sort': query.sort.apiValue,
+          ...query.filters.toQuery(),
         },
         options: Options(extra: {AuthInterceptor.requiresAuthKey: false}),
       );

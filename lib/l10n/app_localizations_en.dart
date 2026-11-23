@@ -412,4 +412,258 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get ticketNumberLabel => 'Booking reference';
+
+  @override
+  String get tabBookings => 'Bookings';
+
+  @override
+  String get accountTitle => 'My account';
+
+  @override
+  String get profileTitle => 'Profile';
+
+  @override
+  String get saveAction => 'Save';
+
+  @override
+  String get profileSaved => 'Profile saved.';
+
+  @override
+  String get phoneVerified => 'Verified';
+
+  @override
+  String get phoneNotVerified => 'Not verified';
+
+  @override
+  String get phoneVerifyHint =>
+      'We\'ll text you a 6-digit code to confirm this number is yours.';
+
+  @override
+  String get smsCodeLabel => '6-digit code';
+
+  @override
+  String get sendCode => 'Send code';
+
+  @override
+  String get resendCode => 'Send a new code';
+
+  @override
+  String get codeSent => 'Code sent by SMS.';
+
+  @override
+  String get verifyAction => 'Verify';
+
+  @override
+  String get phoneVerifiedDone => 'Your phone number is verified.';
+
+  @override
+  String get currentPassword => 'Current password';
+
+  @override
+  String get newPassword => 'New password';
+
+  @override
+  String get changePassword => 'Change password';
+
+  @override
+  String get passwordChanged =>
+      'Password changed. Other devices are logged out.';
+
+  @override
+  String get forgotLink => 'Forgot password?';
+
+  @override
+  String get forgotTitle => 'Reset password';
+
+  @override
+  String get forgotIntro =>
+      'Enter your phone number. We\'ll text you a code to set a new password.';
+
+  @override
+  String get resetCodeSent =>
+      'If this number has an account, we\'ve sent a code by SMS.';
+
+  @override
+  String get setNewPassword => 'Set new password';
+
+  @override
+  String get resetDone => 'Password updated. You can now log in.';
+
+  @override
+  String get genericError => 'Something went wrong. Please try again.';
+
+  @override
+  String get bookingsEmpty =>
+      'No bookings yet. Search for a trip to get started.';
+
+  @override
+  String get bookingsUpcoming => 'Upcoming';
+
+  @override
+  String get bookingsPast => 'Past';
+
+  @override
+  String get statusAwaitingPayment => 'Awaiting payment';
+
+  @override
+  String get statusConfirmed => 'Confirmed';
+
+  @override
+  String get statusCancelled => 'Cancelled';
+
+  @override
+  String get statusExpired => 'Expired';
+
+  @override
+  String get statusRefunded => 'Refunded';
+
+  @override
+  String get statusRefundInProgress => 'Refund in progress';
+
+  @override
+  String get rateTrip => 'Rate this trip';
+
+  @override
+  String get cancelBooking => 'Cancel booking';
+
+  @override
+  String get cancelBookingTitle => 'Cancel this booking?';
+
+  @override
+  String cancelRefundPreview(String amount, String percent) {
+    return 'You\'ll get $amount back ($percent% of the ticket) on the Mobile Money number you paid with.';
+  }
+
+  @override
+  String get cancelNoRefund =>
+      'It\'s too close to departure for a refund under the operator\'s policy.';
+
+  @override
+  String get keepBooking => 'Keep booking';
+
+  @override
+  String get confirmCancel => 'Cancel booking';
+
+  @override
+  String get bookingCancelled => 'Booking cancelled.';
+
+  @override
+  String get seatLabel => 'Seat';
+
+  @override
+  String get refundLabel => 'Refund';
+
+  @override
+  String get ratingOverall => 'Overall';
+
+  @override
+  String get ratingPunctuality => 'Punctuality';
+
+  @override
+  String get ratingService => 'Service';
+
+  @override
+  String get ratingVehicle => 'Vehicle';
+
+  @override
+  String get ratingComment => 'Comment (optional)';
+
+  @override
+  String get submitReview => 'Send review';
+
+  @override
+  String get notificationsTitle => 'Notifications';
+
+  @override
+  String get notificationsEmpty => 'No notifications yet.';
+
+  @override
+  String get scanTickets => 'Scan tickets';
+
+  @override
+  String get enterTokenTitle => 'Enter ticket code';
+
+  @override
+  String get checkInAction => 'Check in';
+
+  @override
+  String get checkedIn => 'Passenger checked in';
+
+  @override
+  String get notValid => 'Not valid';
+
+  @override
+  String get scanNext => 'Scan next';
+
+  @override
+  String get cameraUnavailable =>
+      'The camera isn\'t available. Allow camera access in Settings, or enter the ticket code.';
+
+  @override
+  String get holdExpired =>
+      'The seat hold has expired. If you approve the payment now, we\'ll confirm the seat if it\'s still free, or refund you.';
+
+  @override
+  String holdRemaining(String time) {
+    return 'Seat held for $time';
+  }
+
+  @override
+  String get ticketsOfflineTitle => 'You\'re offline';
+
+  @override
+  String get ticketsOfflineBody =>
+      'Showing your saved tickets. Their QR codes still work at boarding.';
+
+  @override
+  String get filtersTitle => 'Filters';
+
+  @override
+  String get filtersClear => 'Clear';
+
+  @override
+  String get filtersApply => 'Show trips';
+
+  @override
+  String get filterVehicle => 'Vehicle';
+
+  @override
+  String get filterDeparture => 'Departure time';
+
+  @override
+  String get filterRating => 'Operator rating';
+
+  @override
+  String get filterAmenities => 'On board';
+
+  @override
+  String get filterMaxPrice => 'Maximum price';
+
+  @override
+  String get timeMorning => 'Morning';
+
+  @override
+  String get timeAfternoon => 'Afternoon';
+
+  @override
+  String get timeEvening => 'Evening';
+
+  @override
+  String get vehicleBus => 'Bus';
+
+  @override
+  String get vehicleMinibus => 'Minibus';
+
+  @override
+  String get vehicleVan => 'Van';
+
+  @override
+  String get vehicleTaxi => 'Taxi';
+
+  @override
+  String get amenityAc => 'Air conditioning';
+
+  @override
+  String get ticketNotFound =>
+      'Ticket not found. Pull to refresh your tickets.';
 }

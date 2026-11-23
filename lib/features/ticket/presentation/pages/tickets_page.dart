@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+
+import 'package:easytrip/core/router/app_routes.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:easytrip/core/di/injector.dart';
 import 'package:easytrip/core/utils/load_status.dart';
 import 'package:easytrip/l10n/app_localizations.dart';
 import 'package:easytrip/features/ticket/presentation/cubit/tickets_cubit.dart';
-import 'package:easytrip/features/ticket/presentation/pages/ticket_detail_page.dart';
 import 'package:easytrip/features/ticket/presentation/widgets/ticket_card.dart';
 
 /// The "My Tickets" tab: the traveller's e-tickets.
@@ -72,6 +74,15 @@ class _TicketsView extends StatelessWidget {
     return ListView(
       padding: const EdgeInsets.fromLTRB(16, 16, 16, 24),
       children: [
+        if (state.offline)
+          Card(
+            color: Theme.of(context).colorScheme.secondaryContainer,
+            child: ListTile(
+              leading: const Icon(Icons.cloud_off),
+              title: Text(l10n.ticketsOfflineTitle),
+              subtitle: Text(l10n.ticketsOfflineBody),
+            ),
+          ),
         Padding(
           padding: const EdgeInsets.only(bottom: 12, left: 4),
           child: Text(
@@ -85,10 +96,7 @@ class _TicketsView extends StatelessWidget {
         for (final ticket in state.tickets)
           TicketCard(
             ticket: ticket,
-            onTap: () => Navigator.of(context).push(
-              MaterialPageRoute<void>(
-                  builder: (_) => TicketDetailPage(ticket: ticket)),
-            ),
+            onTap: () => context.push(AppRoutes.ticketPath(ticket.id)),
           ),
       ],
     );
