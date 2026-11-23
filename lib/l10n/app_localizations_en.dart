@@ -666,4 +666,7 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get ticketNotFound =>
       'Ticket not found. Pull to refresh your tickets.';
+
+  @override
+  String get ticketStatusNoShow => 'Not boarded';
 }

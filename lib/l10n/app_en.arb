@@ -283,5 +283,6 @@
   "vehicleVan": "Van",
   "vehicleTaxi": "Taxi",
   "amenityAc": "Air conditioning",
-  "ticketNotFound": "Ticket not found. Pull to refresh your tickets."
+  "ticketNotFound": "Ticket not found. Pull to refresh your tickets.",
+  "ticketStatusNoShow": "Not boarded"
 }

@@ -29,6 +29,11 @@ class TicketCard extends StatelessWidget {
           bg: scheme.errorContainer,
           fg: scheme.onErrorContainer,
         ),
+      TicketStatus.noShow => (
+          label: l10n.ticketStatusNoShow,
+          bg: scheme.surfaceContainerHighest,
+          fg: scheme.onSurfaceVariant,
+        ),
       TicketStatus.unknown => (
           label: ticket.paymentStatus,
           bg: scheme.surfaceContainerHighest,

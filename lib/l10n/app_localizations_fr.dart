@@ -670,4 +670,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get ticketNotFound => 'Billet introuvable. Actualisez vos billets.';
+
+  @override
+  String get ticketStatusNoShow => 'Non embarqué';
 }

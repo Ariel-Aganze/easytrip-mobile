@@ -259,5 +259,6 @@
   "vehicleVan": "Van",
   "vehicleTaxi": "Taxi",
   "amenityAc": "Climatisation",
-  "ticketNotFound": "Billet introuvable. Actualisez vos billets."
+  "ticketNotFound": "Billet introuvable. Actualisez vos billets.",
+  "ticketStatusNoShow": "Non embarqué"
 }

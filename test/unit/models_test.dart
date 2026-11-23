@@ -111,4 +111,8 @@ void main() {
     expect(copy.isPaid, isTrue);
     expect(copy.departure.toUtc(), DateTime.utc(2026, 11, 25, 7));
   });
+
+  test('NO_SHOW tickets are recognised (not shown as "PAID")', () {
+    expect(TicketStatus.fromApi('NO_SHOW'), TicketStatus.noShow);
+  });
 }

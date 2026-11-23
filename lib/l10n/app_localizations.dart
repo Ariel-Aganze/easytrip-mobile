@@ -1301,6 +1301,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Ticket not found. Pull to refresh your tickets.'**
   String get ticketNotFound;
+
+  /// No description provided for @ticketStatusNoShow.
+  ///
+  /// In en, this message translates to:
+  /// **'Not boarded'**
+  String get ticketStatusNoShow;
 }
 
 class _AppLocalizationsDelegate
