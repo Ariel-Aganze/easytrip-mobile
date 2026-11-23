@@ -44,7 +44,8 @@ class _HomePageState extends State<HomePage> {
           const LanguageToggleButton(),
           IconButton(
             tooltip: l10n.logout,
-            onPressed: () => context.read<AuthBloc>().add(const AuthLoggedOut()),
+            onPressed: () =>
+                context.read<AuthBloc>().add(const AuthLoggedOut()),
             icon: const Icon(Icons.logout),
           ),
           const SizedBox(width: 4),
@@ -52,7 +53,7 @@ class _HomePageState extends State<HomePage> {
       ),
       body: SafeArea(
         child: switch (_index) {
-          0 => SearchPage(),
+          0 => const SearchPage(),
           1 => const TicketsPage(),
           _ => _ProfileTab(user: user, roleLabel: _roleLabel),
         },
@@ -82,88 +83,6 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-class _HomeTab extends StatelessWidget {
-  const _HomeTab({required this.user});
-  final AuthUser? user;
-
-  @override
-  Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context);
-    final scheme = Theme.of(context).colorScheme;
-    final textTheme = Theme.of(context).textTheme;
-    final name = (user?.fullName.trim().isNotEmpty ?? false)
-        ? user!.fullName.split(' ').first
-        : '';
-
-    return Center(
-      child: SingleChildScrollView(
-        padding: const EdgeInsets.all(24),
-        child: ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 560),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                l10n.homeGreeting(name),
-                style: textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.w700),
-              ),
-              const SizedBox(height: 6),
-              Text(
-                l10n.homeWelcome,
-                style: textTheme.bodyLarge?.copyWith(color: scheme.onSurfaceVariant),
-              ),
-              const SizedBox(height: 24),
-              Container(
-                padding: const EdgeInsets.all(20),
-                decoration: BoxDecoration(
-                  color: scheme.primaryContainer,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Row(
-                  children: [
-                    Icon(Icons.explore_outlined, color: scheme.onPrimaryContainer),
-                    const SizedBox(width: 14),
-                    Expanded(
-                      child: Text(
-                        l10n.homeBuildNote,
-                        style: TextStyle(color: scheme.onPrimaryContainer, height: 1.4),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _ComingSoonTab extends StatelessWidget {
-  const _ComingSoonTab({required this.icon, required this.title});
-  final IconData icon;
-  final String title;
-
-  @override
-  Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context);
-    final scheme = Theme.of(context).colorScheme;
-    return Center(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(icon, size: 48, color: scheme.onSurfaceVariant),
-          const SizedBox(height: 12),
-          Text(title, style: Theme.of(context).textTheme.titleLarge),
-          const SizedBox(height: 6),
-          Text(l10n.comingSoon, style: TextStyle(color: scheme.onSurfaceVariant)),
-        ],
-      ),
-    );
-  }
-}
-
 class _ProfileTab extends StatelessWidget {
   const _ProfileTab({required this.user, required this.roleLabel});
   final AuthUser? user;
@@ -185,15 +104,18 @@ class _ProfileTab extends StatelessWidget {
               CircleAvatar(
                 radius: 40,
                 backgroundColor: scheme.primaryContainer,
-                child: Icon(Icons.person, size: 40, color: scheme.onPrimaryContainer),
+                child: Icon(Icons.person,
+                    size: 40, color: scheme.onPrimaryContainer),
               ),
               const SizedBox(height: 16),
               Text(
                 user?.fullName ?? '',
-                style: textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w700),
+                style:
+                    textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w700),
               ),
               const SizedBox(height: 4),
-              Text(user?.phoneNumber ?? '', style: TextStyle(color: scheme.onSurfaceVariant)),
+              Text(user?.phoneNumber ?? '',
+                  style: TextStyle(color: scheme.onSurfaceVariant)),
               const SizedBox(height: 12),
               if (user != null)
                 Chip(
@@ -204,7 +126,8 @@ class _ProfileTab extends StatelessWidget {
                 ),
               const SizedBox(height: 28),
               OutlinedButton.icon(
-                onPressed: () => context.read<AuthBloc>().add(const AuthLoggedOut()),
+                onPressed: () =>
+                    context.read<AuthBloc>().add(const AuthLoggedOut()),
                 icon: const Icon(Icons.logout),
                 label: Text(l10n.logout),
               ),

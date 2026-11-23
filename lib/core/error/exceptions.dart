@@ -3,6 +3,7 @@
 /// The repository catches these and converts them into [Failure]s (see
 /// `failure.dart`), so the domain and presentation layers never see raw
 /// networking exceptions.
+library;
 
 /// An error the backend returned (any non-2xx HTTP response we could read).
 class ApiException implements Exception {

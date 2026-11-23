@@ -65,7 +65,8 @@ class _LoginViewState extends State<_LoginView> {
     final textTheme = Theme.of(context).textTheme;
 
     return Scaffold(
-      appBar: AppBar(actions: const [LanguageToggleButton(), SizedBox(width: 8)]),
+      appBar:
+          AppBar(actions: const [LanguageToggleButton(), SizedBox(width: 8)]),
       body: SafeArea(
         child: BlocConsumer<LoginCubit, LoginState>(
           listenWhen: (prev, curr) => prev.status != curr.status,
@@ -92,14 +93,17 @@ class _LoginViewState extends State<_LoginView> {
                           child: AppLogo(size: 44),
                         ),
                         const SizedBox(height: 28),
-                        Text(l10n.loginTitle, style: textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.w700)),
+                        Text(l10n.loginTitle,
+                            style: textTheme.headlineSmall
+                                ?.copyWith(fontWeight: FontWeight.w700)),
                         const SizedBox(height: 6),
-                        Text(l10n.loginSubtitle, style: textTheme.bodyMedium?.copyWith(color: scheme.onSurfaceVariant)),
+                        Text(l10n.loginSubtitle,
+                            style: textTheme.bodyMedium
+                                ?.copyWith(color: scheme.onSurfaceVariant)),
                         const SizedBox(height: 24),
-
-                        if (state.status == FormStatus.failure && state.errorMessage != null)
+                        if (state.status == FormStatus.failure &&
+                            state.errorMessage != null)
                           ErrorBanner(message: state.errorMessage!),
-
                         PhoneField(
                           label: l10n.phoneLabel,
                           hint: l10n.phoneHint,
@@ -107,11 +111,12 @@ class _LoginViewState extends State<_LoginView> {
                           errorText: phoneError,
                           onChanged: (value) {
                             _phone = value;
-                            if (_phoneError != null) setState(() => _phoneError = null);
+                            if (_phoneError != null) {
+                              setState(() => _phoneError = null);
+                            }
                           },
                         ),
                         const SizedBox(height: 16),
-
                         TextFormField(
                           controller: _passwordController,
                           enabled: !state.isSubmitting,
@@ -122,33 +127,39 @@ class _LoginViewState extends State<_LoginView> {
                             labelText: l10n.passwordLabel,
                             errorText: state.fieldErrors['password'],
                             suffixIcon: IconButton(
-                              onPressed: () => setState(() => _obscure = !_obscure),
-                              icon: Icon(_obscure ? Icons.visibility_outlined : Icons.visibility_off_outlined),
+                              onPressed: () =>
+                                  setState(() => _obscure = !_obscure),
+                              icon: Icon(_obscure
+                                  ? Icons.visibility_outlined
+                                  : Icons.visibility_off_outlined),
                             ),
                           ),
-                          validator: (value) =>
-                              (value == null || value.isEmpty) ? l10n.validationRequired : null,
+                          validator: (value) => (value == null || value.isEmpty)
+                              ? l10n.validationRequired
+                              : null,
                         ),
                         const SizedBox(height: 24),
-
                         FilledButton(
                           onPressed: state.isSubmitting ? null : _submit,
                           child: state.isSubmitting
                               ? const SizedBox(
                                   height: 22,
                                   width: 22,
-                                  child: CircularProgressIndicator(strokeWidth: 2.4),
+                                  child: CircularProgressIndicator(
+                                      strokeWidth: 2.4),
                                 )
                               : Text(l10n.loginButton),
                         ),
                         const SizedBox(height: 20),
-
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text(l10n.noAccountQuestion, style: textTheme.bodyMedium),
+                            Text(l10n.noAccountQuestion,
+                                style: textTheme.bodyMedium),
                             TextButton(
-                              onPressed: state.isSubmitting ? null : () => context.push(AppRoutes.register),
+                              onPressed: state.isSubmitting
+                                  ? null
+                                  : () => context.push(AppRoutes.register),
                               child: Text(l10n.signUpLink),
                             ),
                           ],

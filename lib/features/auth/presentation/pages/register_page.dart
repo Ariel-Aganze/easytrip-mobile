@@ -73,7 +73,8 @@ class _RegisterViewState extends State<_RegisterView> {
     final textTheme = Theme.of(context).textTheme;
 
     return Scaffold(
-      appBar: AppBar(actions: const [LanguageToggleButton(), SizedBox(width: 8)]),
+      appBar:
+          AppBar(actions: const [LanguageToggleButton(), SizedBox(width: 8)]),
       body: SafeArea(
         child: BlocConsumer<RegisterCubit, RegisterState>(
           listenWhen: (prev, curr) => prev.status != curr.status,
@@ -100,14 +101,17 @@ class _RegisterViewState extends State<_RegisterView> {
                           child: AppLogo(size: 44),
                         ),
                         const SizedBox(height: 28),
-                        Text(l10n.registerTitle, style: textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.w700)),
+                        Text(l10n.registerTitle,
+                            style: textTheme.headlineSmall
+                                ?.copyWith(fontWeight: FontWeight.w700)),
                         const SizedBox(height: 6),
-                        Text(l10n.registerSubtitle, style: textTheme.bodyMedium?.copyWith(color: scheme.onSurfaceVariant)),
+                        Text(l10n.registerSubtitle,
+                            style: textTheme.bodyMedium
+                                ?.copyWith(color: scheme.onSurfaceVariant)),
                         const SizedBox(height: 24),
-
-                        if (state.status == RegisterStatus.failure && state.errorMessage != null)
+                        if (state.status == RegisterStatus.failure &&
+                            state.errorMessage != null)
                           ErrorBanner(message: state.errorMessage!),
-
                         TextFormField(
                           controller: _nameController,
                           enabled: !state.isSubmitting,
@@ -119,10 +123,11 @@ class _RegisterViewState extends State<_RegisterView> {
                             errorText: state.fieldErrors['full_name'],
                           ),
                           validator: (value) =>
-                              (value == null || value.trim().isEmpty) ? l10n.validationRequired : null,
+                              (value == null || value.trim().isEmpty)
+                                  ? l10n.validationRequired
+                                  : null,
                         ),
                         const SizedBox(height: 16),
-
                         PhoneField(
                           label: l10n.phoneLabel,
                           hint: l10n.phoneHint,
@@ -130,11 +135,12 @@ class _RegisterViewState extends State<_RegisterView> {
                           errorText: phoneError,
                           onChanged: (value) {
                             _phone = value;
-                            if (_phoneError != null) setState(() => _phoneError = null);
+                            if (_phoneError != null) {
+                              setState(() => _phoneError = null);
+                            }
                           },
                         ),
                         const SizedBox(height: 16),
-
                         TextFormField(
                           controller: _emailController,
                           enabled: !state.isSubmitting,
@@ -148,11 +154,12 @@ class _RegisterViewState extends State<_RegisterView> {
                           validator: (value) {
                             final v = value?.trim() ?? '';
                             if (v.isEmpty) return null; // optional
-                            return _emailRegex.hasMatch(v) ? null : l10n.validationInvalidEmail;
+                            return _emailRegex.hasMatch(v)
+                                ? null
+                                : l10n.validationInvalidEmail;
                           },
                         ),
                         const SizedBox(height: 16),
-
                         TextFormField(
                           controller: _passwordController,
                           enabled: !state.isSubmitting,
@@ -163,34 +170,41 @@ class _RegisterViewState extends State<_RegisterView> {
                             labelText: l10n.createPasswordLabel,
                             errorText: state.fieldErrors['password'],
                             suffixIcon: IconButton(
-                              onPressed: () => setState(() => _obscure = !_obscure),
-                              icon: Icon(_obscure ? Icons.visibility_outlined : Icons.visibility_off_outlined),
+                              onPressed: () =>
+                                  setState(() => _obscure = !_obscure),
+                              icon: Icon(_obscure
+                                  ? Icons.visibility_outlined
+                                  : Icons.visibility_off_outlined),
                             ),
                           ),
                           validator: (value) {
-                            if (value == null || value.isEmpty) return l10n.validationRequired;
-                            if (value.length < 8) return l10n.validationPasswordTooShort;
+                            if (value == null || value.isEmpty) {
+                              return l10n.validationRequired;
+                            }
+                            if (value.length < 8) {
+                              return l10n.validationPasswordTooShort;
+                            }
                             return null;
                           },
                         ),
                         const SizedBox(height: 24),
-
                         FilledButton(
                           onPressed: state.isSubmitting ? null : _submit,
                           child: state.isSubmitting
                               ? const SizedBox(
                                   height: 22,
                                   width: 22,
-                                  child: CircularProgressIndicator(strokeWidth: 2.4),
+                                  child: CircularProgressIndicator(
+                                      strokeWidth: 2.4),
                                 )
                               : Text(l10n.registerButton),
                         ),
                         const SizedBox(height: 20),
-
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text(l10n.haveAccountQuestion, style: textTheme.bodyMedium),
+                            Text(l10n.haveAccountQuestion,
+                                style: textTheme.bodyMedium),
                             TextButton(
                               onPressed: state.isSubmitting
                                   ? null

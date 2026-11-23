@@ -79,6 +79,8 @@ String _defaultMessage(int status) {
   if (status == 401) return 'Your session has expired. Please log in again.';
   if (status == 403) return "You don't have permission to do that.";
   if (status == 404) return 'Not found.';
-  if (status >= 500) return 'Something went wrong on our side. Please try again.';
+  if (status >= 500) {
+    return 'Something went wrong on our side. Please try again.';
+  }
   return 'Something went wrong. Please try again.';
 }

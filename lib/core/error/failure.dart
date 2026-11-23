@@ -38,18 +38,18 @@ final class UnauthorizedFailure extends Failure {
 /// The request was rejected for validation reasons (400 / 422).
 final class ValidationFailure extends Failure {
   const ValidationFailure({
-    required String message,
-    Map<String, String> fieldErrors = const {},
-  }) : super(message: message, fieldErrors: fieldErrors);
+    required super.message,
+    super.fieldErrors,
+  });
 }
 
 /// The server errored (>= 500) or returned an unexpected status.
 final class ServerFailure extends Failure {
   const ServerFailure({
-    required String message,
+    required super.message,
     this.statusCode = 500,
-    Map<String, String> fieldErrors = const {},
-  }) : super(message: message, fieldErrors: fieldErrors);
+    super.fieldErrors,
+  });
 
   final int statusCode;
 
@@ -59,7 +59,8 @@ final class ServerFailure extends Failure {
 
 /// Anything we didn't specifically account for.
 final class UnknownFailure extends Failure {
-  const UnknownFailure([String message = 'Something went wrong. Please try again.'])
+  const UnknownFailure(
+      [String message = 'Something went wrong. Please try again.'])
       : super(message: message);
 }
 
@@ -80,7 +81,8 @@ Failure failureFromException(Object error) {
       );
     }
     if (error.statusCode >= 500) {
-      return ServerFailure(message: error.message, statusCode: error.statusCode);
+      return ServerFailure(
+          message: error.message, statusCode: error.statusCode);
     }
     return ServerFailure(
       message: error.message,

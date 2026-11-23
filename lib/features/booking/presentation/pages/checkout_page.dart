@@ -108,7 +108,8 @@ class _CheckoutViewState extends State<_CheckoutView> {
       for (var i = 0; i < widget.passengerCount; i++)
         Passenger(
           fullName: _names[i].text.trim(),
-          seatNumber: i < widget.selectedSeats.length ? widget.selectedSeats[i] : null,
+          seatNumber:
+              i < widget.selectedSeats.length ? widget.selectedSeats[i] : null,
         ),
     ];
 
@@ -168,12 +169,14 @@ class _CheckoutViewState extends State<_CheckoutView> {
                           ),
                           child: Row(
                             children: [
-                              Icon(Icons.confirmation_number_outlined, color: scheme.primary),
+                              Icon(Icons.confirmation_number_outlined,
+                                  color: scheme.primary),
                               const SizedBox(width: 12),
                               Expanded(
                                 child: Text(
                                   widget.routeLabel,
-                                  style: textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700),
+                                  style: textTheme.titleMedium
+                                      ?.copyWith(fontWeight: FontWeight.w700),
                                 ),
                               ),
                             ],
@@ -181,17 +184,20 @@ class _CheckoutViewState extends State<_CheckoutView> {
                         ),
                         const SizedBox(height: 24),
 
-                        if (state.status == CheckoutStatus.error && state.errorMessage != null)
+                        if (state.status == CheckoutStatus.error &&
+                            state.errorMessage != null)
                           ErrorBanner(message: state.errorMessage!),
 
                         // Passengers
                         Text(
                           l10n.passengerDetailsTitle,
-                          style: textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700),
+                          style: textTheme.titleMedium
+                              ?.copyWith(fontWeight: FontWeight.w700),
                         ),
                         const SizedBox(height: 12),
                         for (var i = 0; i < widget.passengerCount; i++) ...[
-                          if (widget.passengerCount > 1 || widget.selectedSeats.isNotEmpty)
+                          if (widget.passengerCount > 1 ||
+                              widget.selectedSeats.isNotEmpty)
                             Padding(
                               padding: const EdgeInsets.only(bottom: 6),
                               child: Row(
@@ -205,13 +211,15 @@ class _CheckoutViewState extends State<_CheckoutView> {
                                   if (i < widget.selectedSeats.length) ...[
                                     const SizedBox(width: 8),
                                     Container(
-                                      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 1),
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 8, vertical: 1),
                                       decoration: BoxDecoration(
                                         color: scheme.secondaryContainer,
                                         borderRadius: BorderRadius.circular(20),
                                       ),
                                       child: Text(
-                                        l10n.seatChipLabel(widget.selectedSeats[i]),
+                                        l10n.seatChipLabel(
+                                            widget.selectedSeats[i]),
                                         style: textTheme.labelSmall?.copyWith(
                                           color: scheme.onSecondaryContainer,
                                         ),
@@ -230,7 +238,9 @@ class _CheckoutViewState extends State<_CheckoutView> {
                               hintText: l10n.fullNameHint,
                             ),
                             validator: (value) =>
-                                (value == null || value.trim().isEmpty) ? l10n.validationRequired : null,
+                                (value == null || value.trim().isEmpty)
+                                    ? l10n.validationRequired
+                                    : null,
                           ),
                           const SizedBox(height: 12),
                         ],
@@ -239,23 +249,28 @@ class _CheckoutViewState extends State<_CheckoutView> {
                           controller: _contact,
                           enabled: !state.isSubmitting,
                           keyboardType: TextInputType.phone,
-                          decoration: InputDecoration(labelText: l10n.contactPhoneLabel),
+                          decoration: InputDecoration(
+                              labelText: l10n.contactPhoneLabel),
                         ),
                         const SizedBox(height: 24),
 
                         // Payment
                         Text(
                           l10n.paymentTitle,
-                          style: textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700),
+                          style: textTheme.titleMedium
+                              ?.copyWith(fontWeight: FontWeight.w700),
                         ),
                         const SizedBox(height: 12),
                         DropdownButtonFormField<PaymentNetwork>(
                           value: _network,
-                          decoration: InputDecoration(labelText: l10n.networkLabel),
+                          decoration:
+                              InputDecoration(labelText: l10n.networkLabel),
                           onChanged: state.isSubmitting
                               ? null
                               : (value) {
-                                  if (value != null) setState(() => _network = value);
+                                  if (value != null) {
+                                    setState(() => _network = value);
+                                  }
                                 },
                           items: [
                             for (final n in PaymentNetwork.values)
@@ -272,7 +287,9 @@ class _CheckoutViewState extends State<_CheckoutView> {
                             errorText: state.fieldErrors['msisdn'],
                           ),
                           validator: (value) =>
-                              (value == null || value.trim().isEmpty) ? l10n.validationRequired : null,
+                              (value == null || value.trim().isEmpty)
+                                  ? l10n.validationRequired
+                                  : null,
                         ),
                         const SizedBox(height: 24),
 
@@ -297,9 +314,11 @@ class _CheckoutViewState extends State<_CheckoutView> {
                               ? const SizedBox(
                                   height: 22,
                                   width: 22,
-                                  child: CircularProgressIndicator(strokeWidth: 2.4),
+                                  child: CircularProgressIndicator(
+                                      strokeWidth: 2.4),
                                 )
-                              : Text(l10n.payNow(Money.format(total, widget.currency))),
+                              : Text(l10n.payNow(
+                                  Money.format(total, widget.currency))),
                         ),
                       ],
                     ),

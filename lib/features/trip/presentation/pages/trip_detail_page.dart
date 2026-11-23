@@ -5,7 +5,6 @@ import 'package:easytrip/core/di/injector.dart';
 import 'package:easytrip/core/utils/load_status.dart';
 import 'package:easytrip/core/utils/money_formatter.dart';
 import 'package:easytrip/l10n/app_localizations.dart';
-import 'package:easytrip/features/trip/domain/entities/trip_detail.dart';
 import 'package:easytrip/features/trip/presentation/cubit/trip_detail_cubit.dart';
 import 'package:easytrip/features/trip/presentation/widgets/seat_map_view.dart';
 import 'package:easytrip/features/booking/presentation/pages/checkout_page.dart';
@@ -23,7 +22,8 @@ class TripDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<TripDetailCubit>(
-      create: (_) => sl<TripDetailCubit>(param1: tripId, param2: passengers)..load(),
+      create: (_) =>
+          sl<TripDetailCubit>(param1: tripId, param2: passengers)..load(),
       child: const _TripDetailView(),
     );
   }
@@ -71,7 +71,8 @@ class _Content extends StatelessWidget {
   final TripDetailState state;
 
   String _time(BuildContext context, DateTime dt) =>
-      MaterialLocalizations.of(context).formatTimeOfDay(TimeOfDay.fromDateTime(dt));
+      MaterialLocalizations.of(context)
+          .formatTimeOfDay(TimeOfDay.fromDateTime(dt));
 
   @override
   Widget build(BuildContext context) {
@@ -90,7 +91,9 @@ class _Content extends StatelessWidget {
           style: textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.w700),
         ),
         const SizedBox(height: 4),
-        Text(detail.operatorName, style: textTheme.titleMedium?.copyWith(color: scheme.onSurfaceVariant)),
+        Text(detail.operatorName,
+            style: textTheme.titleMedium
+                ?.copyWith(color: scheme.onSurfaceVariant)),
         const SizedBox(height: 16),
 
         // Time card
@@ -106,24 +109,31 @@ class _Content extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  _InfoBlock(label: l10n.tripDepartureLabel, value: _time(context, detail.departure)),
+                  _InfoBlock(
+                      label: l10n.tripDepartureLabel,
+                      value: _time(context, detail.departure)),
                   Icon(Icons.arrow_forward, color: scheme.onSurfaceVariant),
                   _InfoBlock(
                     label: l10n.tripArrivalLabel,
-                    value: detail.arrival != null ? _time(context, detail.arrival!) : '—',
+                    value: detail.arrival != null
+                        ? _time(context, detail.arrival!)
+                        : '—',
                     alignEnd: true,
                   ),
                 ],
               ),
               const SizedBox(height: 8),
               Text(
-                MaterialLocalizations.of(context).formatFullDate(detail.departure),
-                style: textTheme.bodySmall?.copyWith(color: scheme.onSurfaceVariant),
+                MaterialLocalizations.of(context)
+                    .formatFullDate(detail.departure),
+                style: textTheme.bodySmall
+                    ?.copyWith(color: scheme.onSurfaceVariant),
               ),
               const Divider(height: 24),
               Row(
                 children: [
-                  Icon(Icons.directions_bus_rounded, size: 18, color: scheme.onSurfaceVariant),
+                  Icon(Icons.directions_bus_rounded,
+                      size: 18, color: scheme.onSurfaceVariant),
                   const SizedBox(width: 8),
                   Text(detail.vehicleType),
                 ],
@@ -135,7 +145,9 @@ class _Content extends StatelessWidget {
         // Amenities
         if (detail.amenities.isNotEmpty) ...[
           const SizedBox(height: 20),
-          Text(l10n.amenitiesTitle, style: textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700)),
+          Text(l10n.amenitiesTitle,
+              style:
+                  textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700)),
           const SizedBox(height: 8),
           Wrap(
             spacing: 8,
@@ -179,10 +191,13 @@ class _SeatSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(l10n.seatChooseTitle, style: textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700)),
+        Text(l10n.seatChooseTitle,
+            style:
+                textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700)),
         const SizedBox(height: 4),
         Text(
-          l10n.seatSelectedProgress(state.selectedSeats.length, cubit.passengers),
+          l10n.seatSelectedProgress(
+              state.selectedSeats.length, cubit.passengers),
           style: textTheme.bodyMedium?.copyWith(color: scheme.onSurfaceVariant),
         ),
         const SizedBox(height: 16),
@@ -229,7 +244,8 @@ class _AutoSeatCard extends StatelessWidget {
                 const SizedBox(height: 2),
                 Text(
                   l10n.seatAutoBody,
-                  style: textTheme.bodySmall?.copyWith(color: scheme.onPrimaryContainer),
+                  style: textTheme.bodySmall
+                      ?.copyWith(color: scheme.onPrimaryContainer),
                 ),
               ],
             ),
@@ -241,7 +257,8 @@ class _AutoSeatCard extends StatelessWidget {
 }
 
 class _InfoBlock extends StatelessWidget {
-  const _InfoBlock({required this.label, required this.value, this.alignEnd = false});
+  const _InfoBlock(
+      {required this.label, required this.value, this.alignEnd = false});
   final String label;
   final String value;
   final bool alignEnd;
@@ -251,11 +268,15 @@ class _InfoBlock extends StatelessWidget {
     final scheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
     return Column(
-      crossAxisAlignment: alignEnd ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+      crossAxisAlignment:
+          alignEnd ? CrossAxisAlignment.end : CrossAxisAlignment.start,
       children: [
-        Text(label, style: textTheme.bodySmall?.copyWith(color: scheme.onSurfaceVariant)),
+        Text(label,
+            style:
+                textTheme.bodySmall?.copyWith(color: scheme.onSurfaceVariant)),
         const SizedBox(height: 2),
-        Text(value, style: textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w700)),
+        Text(value,
+            style: textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w700)),
       ],
     );
   }
@@ -288,10 +309,13 @@ class _BottomBar extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text(l10n.totalLabel, style: textTheme.bodySmall?.copyWith(color: scheme.onSurfaceVariant)),
+                Text(l10n.totalLabel,
+                    style: textTheme.bodySmall
+                        ?.copyWith(color: scheme.onSurfaceVariant)),
                 Text(
                   Money.format(total, detail.currency),
-                  style: textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w800, color: scheme.primary),
+                  style: textTheme.titleLarge?.copyWith(
+                      fontWeight: FontWeight.w800, color: scheme.primary),
                 ),
               ],
             ),
@@ -308,7 +332,8 @@ class _BottomBar extends StatelessWidget {
                               selectedSeats: state.selectedSeats,
                               unitPrice: detail.price,
                               currency: detail.currency,
-                              routeLabel: '${detail.origin} → ${detail.destination}',
+                              routeLabel:
+                                  '${detail.origin} → ${detail.destination}',
                             ),
                           ),
                         );

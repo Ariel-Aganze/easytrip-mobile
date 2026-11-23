@@ -10,3 +10,5 @@ output-class: AppLocalizations
 synthetic-package: false
 # AppLocalizations.of(context) returns a non-null instance.
 nullable-getter: false
+# Run `dart format` on the generated files so CI format checks stay clean.
+format: true

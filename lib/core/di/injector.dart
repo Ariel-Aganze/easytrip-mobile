@@ -55,7 +55,7 @@ final GetIt sl = GetIt.instance;
 Future<void> configureDependencies() async {
   // ---- Core ----
   sl.registerLazySingleton<FlutterSecureStorage>(
-    () => FlutterSecureStorage(
+    () => const FlutterSecureStorage(
       aOptions: AndroidOptions(encryptedSharedPreferences: true),
     ),
   );
@@ -89,7 +89,7 @@ Future<void> configureDependencies() async {
   sl.registerFactory<LoginCubit>(() => LoginCubit(sl()));
   sl.registerFactory<RegisterCubit>(() => RegisterCubit(sl()));
 
-    // ---- Geo ----
+  // ---- Geo ----
   sl.registerLazySingleton<GeoRemoteDataSource>(
     () => GeoRemoteDataSourceImpl(sl<ApiClient>().dio),
   );
@@ -105,7 +105,7 @@ Future<void> configureDependencies() async {
   sl.registerFactory<SearchFormCubit>(() => SearchFormCubit(sl()));
   sl.registerFactory<SearchResultsCubit>(() => SearchResultsCubit(sl()));
 
-    // ---- Trip detail ----
+  // ---- Trip detail ----
   sl.registerLazySingleton<TripRemoteDataSource>(
     () => TripRemoteDataSourceImpl(sl<ApiClient>().dio),
   );
@@ -125,7 +125,8 @@ Future<void> configureDependencies() async {
   sl.registerLazySingleton<BookingRemoteDataSource>(
     () => BookingRemoteDataSourceImpl(sl<ApiClient>().dio),
   );
-  sl.registerLazySingleton<BookingRepository>(() => BookingRepositoryImpl(sl()));
+  sl.registerLazySingleton<BookingRepository>(
+      () => BookingRepositoryImpl(sl()));
   sl.registerFactory(() => CreateBooking(sl()));
   sl.registerFactory(() => InitiatePayment(sl()));
   sl.registerFactory(() => GetPayment(sl()));
@@ -137,10 +138,11 @@ Future<void> configureDependencies() async {
     ),
   );
   sl.registerFactoryParam<PaymentStatusCubit, String, void>(
-    (paymentId, _) => PaymentStatusCubit(getPayment: sl(), paymentId: paymentId),
+    (paymentId, _) =>
+        PaymentStatusCubit(getPayment: sl(), paymentId: paymentId),
   );
 
-    // ---- Tickets ----
+  // ---- Tickets ----
   sl.registerLazySingleton<TicketRemoteDataSource>(
     () => TicketRemoteDataSourceImpl(sl<ApiClient>().dio),
   );
